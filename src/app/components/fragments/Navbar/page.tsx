@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className="w-full h-16 flex justify-between bg-slate-200">
       <div className="flex justify-center items-center pl-5">
-        <a href="/">
+        <Link href="/">
           <Image
             src={Logo}
             alt="logo"
@@ -26,7 +26,7 @@ const Navbar = () => {
             height={100}
             className="w-10 h-10 shadow-md border-r-2"
           />
-        </a>
+        </Link>
       </div>
       <ul className="w-full h-full flex pl-5 gap-5 items-center">
         {navItems.map((item) => (

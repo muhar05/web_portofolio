@@ -2,7 +2,6 @@ import { TextGenerateEffect } from "../../ui/TextGeneratedEffects/page";
 import {
   FaReact,
   FaNode,
-  FaPython,
   FaJs,
   FaGithub,
   FaVuejs,
@@ -12,15 +11,12 @@ import {
 import {
   SiExpress,
   SiMongodb,
-  SiHtml5,
-  SiCss3,
   SiMysql,
   SiSqlite,
   SiNestjs,
   SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
-  SiTypeorm,
   SiFlutter,
 } from "react-icons/si";
 import { FlipWords } from "../../ui/FlipWords/page";
