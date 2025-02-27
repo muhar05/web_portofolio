@@ -1,5 +1,3 @@
-import Footer from "../../fragments/Footer/page";
-import { InfiniteMovingCard } from "../../ui/InfiniteMovingCard/page";
 import { TextGenerateEffect } from "../../ui/TextGeneratedEffects/page";
 import {
   FaReact,
@@ -25,8 +23,6 @@ import {
   SiTypeorm,
   SiFlutter,
 } from "react-icons/si";
-import { BiLogoPostgresql } from "react-icons/bi";
-import { DiVisualstudio } from "react-icons/di";
 import { FlipWords } from "../../ui/FlipWords/page";
 import Link from "next/link";
 
@@ -34,22 +30,22 @@ const HomePage = () => {
   const words =
     "I am a Fullstack Developer with experience in developing applications from frontend to backend, ready to help bring your ideas to life.";
   const icons = [
-    <FaReact size={50} color="#61DBFB" />,
-    <FaNode size={50} color="#68A063" />,
-    <FaJs size={50} color="#F0DB4F" />,
-    <FaGithub size={50} color="#000000" />,
-    <FaVuejs size={50} color="#41B883" />,
-    <FaPhp size={50} color="#06B6D4" />,
-    <SiExpress size={50} color="#000000" />,
-    <SiMongodb size={50} color="#000000" />,
-    <SiMysql size={50} color="#00000" />,
-    <SiSqlite size={50} color="#000000" />,
-    <SiNestjs size={50} color="#E0234E" />,
-    <SiNextdotjs size={50} color="#000000" />,
-    <FaLaravel size={50} color="#FF2D20" />,
-    <SiTypescript size={50} color="#3178C6" />,
-    <SiTailwindcss size={50} color="#06B6D4" />,
-    <SiFlutter size={50} color="#000000" />,
+    { icon: <FaReact size={50} color="#61DBFB" />, key: "react" },
+    { icon: <FaNode size={50} color="#68A063" />, key: "node" },
+    { icon: <FaJs size={50} color="#F0DB4F" />, key: "js" },
+    { icon: <FaGithub size={50} color="#000000" />, key: "github" },
+    { icon: <FaVuejs size={50} color="#41B883" />, key: "vue" },
+    { icon: <FaPhp size={50} color="#06B6D4" />, key: "php" },
+    { icon: <SiExpress size={50} color="#000000" />, key: "express" },
+    { icon: <SiMongodb size={50} color="#000000" />, key: "mongodb" },
+    { icon: <SiMysql size={50} color="#00000" />, key: "mysql" },
+    { icon: <SiSqlite size={50} color="#000000" />, key: "sqlite" },
+    { icon: <SiNestjs size={50} color="#E0234E" />, key: "nestjs" },
+    { icon: <SiNextdotjs size={50} color="#000000" />, key: "nextjs" },
+    { icon: <FaLaravel size={50} color="#FF2D20" />, key: "laravel" },
+    { icon: <SiTypescript size={50} color="#3178C6" />, key: "typescript" },
+    { icon: <SiTailwindcss size={50} color="#06B6D4" />, key: "tailwind" },
+    { icon: <SiFlutter size={50} color="#000000" />, key: "flutter" },
   ];
 
   const roleWords = [
@@ -82,9 +78,9 @@ const HomePage = () => {
         </div>
         <div className="w-full">
           <div className="grid grid-cols-4 gap-2">
-            {icons.map((icon, idx) => (
+            {icons.map(({ icon, key }) => (
               <div
-                key={idx}
+                key={key} // Pakai key yang unik di sini
                 className="flex justify-center items-center bg-slate-300 p-3 rounded-s-lg hover:bg-slate-400 transition-all duration-300"
               >
                 {icon}

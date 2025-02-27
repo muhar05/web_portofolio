@@ -17,7 +17,7 @@ export const TextGenerateEffect = ({
 
   useEffect(() => {
     animate("span", { opacity: 1 }, { duration, delay: stagger(duration) });
-  }, [scope.current]);
+  }, [scope.current, animate, duration]);
 
   const renderCharacters = () => {
     return (

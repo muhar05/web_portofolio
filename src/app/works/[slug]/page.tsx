@@ -18,12 +18,6 @@ import { DiMysql } from "react-icons/di";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 
-interface WorkDetailProps {
-  params: {
-    slug: string;
-  };
-}
-
 const iconMap: Record<string, JSX.Element> = {
   SiNextdotjs: <SiNextdotjs className="h-6 w-6 text-neutral-500" />,
   SiReact: <SiReact className="h-6 w-6 text-neutral-500" />,

@@ -1,15 +1,4 @@
 import { Work } from "@/app/types/page";
-import {
-  SiDart,
-  SiFlutter,
-  SiLaravel,
-  SiMongodb,
-  SiNextdotjs,
-  SiPhp,
-  SiReact,
-  SiSqlite,
-} from "react-icons/si";
-import { DiMysql } from "react-icons/di";
 import Portfolio1 from "../../../../public/img/port1.png";
 import Portfolio2 from "../../../../public/img/port2.png";
 import Image, { StaticImageData } from "next/image";

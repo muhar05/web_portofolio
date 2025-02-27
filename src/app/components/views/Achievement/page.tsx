@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaFilePdf, FaExternalLinkAlt } from "react-icons/fa";
-import { MdCode, MdEmojiEvents } from "react-icons/md"; // Ikon tambahan dari react-icons
+import { MdEmojiEvents } from "react-icons/md"; // Ikon tambahan dari react-icons
 
 const AchievementPage = () => {
   const achievements = [

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Logo from "../../../../../public/img/logo.png";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -30,7 +31,7 @@ const Navbar = () => {
       <ul className="w-full h-full flex pl-5 gap-5 items-center">
         {navItems.map((item) => (
           <li key={item.href}>
-            <a
+            <Link
               href={item.href}
               className={`cursor-pointer transition-all ${
                 pathname === item.href
@@ -39,7 +40,7 @@ const Navbar = () => {
               }`}
             >
               {item.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
