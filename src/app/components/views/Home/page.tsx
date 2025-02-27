@@ -1,4 +1,4 @@
-import { TextGenerateEffect } from "../../ui/TextGeneratedEffects/page";
+import { TextGenerateEffect } from "../../ui/TextGeneratedEffects";
 import {
   FaReact,
   FaNode,
@@ -19,7 +19,7 @@ import {
   SiTailwindcss,
   SiFlutter,
 } from "react-icons/si";
-import { FlipWords } from "../../ui/FlipWords/page";
+import { FlipWords } from "../../ui/FlipWords";
 import Link from "next/link";
 
 const HomePage = () => {

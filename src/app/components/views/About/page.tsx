@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ProfilePicture from "../../../../../public/img/profile_picture.jpg";
-import { TextGenerateEffect } from "../../ui/TextGeneratedEffects/page";
+import { TextGenerateEffect } from "../../ui/TextGeneratedEffects";
 
 const AboutPage = () => {
   const words1 =
