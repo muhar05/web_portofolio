@@ -1,7 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Logo from "../../../../../public/img/logo.png";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
+  const navItems = [
+    { name: "About", href: "/about" },
+    { name: "Works", href: "/works" },
+    { name: "Achievement", href: "/achievement" },
+    { name: "Get In Touch", href: "/link" },
+  ];
+
   return (
     <div className="w-full h-16 flex justify-between bg-slate-200">
       <div className="flex justify-center items-center pl-5">
@@ -16,18 +28,20 @@ const Navbar = () => {
         </a>
       </div>
       <ul className="w-full h-full flex pl-5 gap-5 items-center">
-        <li className="cursor-pointer hover:text-blue-500 transition-all">
-          <a href="/about">About</a>
-        </li>
-        <li className="cursor-pointer hover:text-blue-500 transition-all">
-          <a href="/works">Works</a>
-        </li>
-        <li className="cursor-pointer hover:text-blue-500 transition-all">
-          <a href="/achievement">Achievement</a>
-        </li>
-        <li className="cursor-pointer hover:text-blue-500 transition-all">
-          <a href="/link">Get In Touch</a>
-        </li>
+        {navItems.map((item) => (
+          <li key={item.href}>
+            <a
+              href={item.href}
+              className={`cursor-pointer transition-all ${
+                pathname === item.href
+                  ? "text-blue-500 font-semibold border-b-2 border-blue-500"
+                  : "hover:text-blue-500"
+              }`}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
       </ul>
       <div className="flex justify-center items-center pr-5">
         <svg

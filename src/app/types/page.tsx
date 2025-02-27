@@ -1,4 +1,5 @@
 export interface Work {
+  id: number;
   slug: string;
   title: string;
   description: string;
@@ -7,6 +8,8 @@ export interface Work {
   ongoing: boolean;
   source: "open-source" | "closed-source";
   documentation?: DocumentationSection[]; // Dokumentasi opsional
+  github?: string;
+  domain?: string;
 }
 
 export interface DocumentationSection {

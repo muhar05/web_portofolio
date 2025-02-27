@@ -1,7 +1,22 @@
-// app/works/[slug]/page.tsx
+"use client";
+
+import { useParams } from "next/navigation";
 import { works } from "@/app/data/works/page";
-import { Endpoint } from "@/app/types/page";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import {
+  SiDart,
+  SiFlutter,
+  SiLaravel,
+  SiMongodb,
+  SiNextdotjs,
+  SiPhp,
+  SiReact,
+  SiSqlite,
+} from "react-icons/si";
+import { DiMysql } from "react-icons/di";
+import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 interface WorkDetailProps {
   params: {
@@ -9,20 +24,50 @@ interface WorkDetailProps {
   };
 }
 
-export default function WorkDetail({ params }: WorkDetailProps) {
-  const work = works.find((work) => work.slug === params.slug);
+const iconMap: Record<string, JSX.Element> = {
+  SiNextdotjs: <SiNextdotjs className="h-6 w-6 text-neutral-500" />,
+  SiReact: <SiReact className="h-6 w-6 text-neutral-500" />,
+  SiMongodb: <SiMongodb className="h-6 w-6 text-neutral-500" />,
+  SiDart: <SiDart className="h-6 w-6 text-neutral-500" />,
+  SiFlutter: <SiFlutter className="h-6 w-6 text-neutral-500" />,
+  SiLaravel: <SiLaravel className="h-6 w-6 text-neutral-500" />,
+  SiPhp: <SiPhp className="h-6 w-6 text-neutral-500" />,
+  DiMysql: <DiMysql className="h-6 w-6 text-neutral-500" />,
+  SiSqlite: <SiSqlite className="h-6 w-6 text-neutral-500" />,
+};
+
+export default function WorkDetail() {
+  const params = useParams(); // Ambil params dari Next.js
+  const slug = params?.slug as string; // Pastikan slug bertipe string
+
+  const work = useMemo(() => works.find((w) => w.slug === slug), [slug]);
 
   if (!work) {
     return notFound();
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-6">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-6"
+    >
       <div className="container mx-auto">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
+        <motion.h1
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-4xl font-bold text-center text-gray-800 mb-8"
+        >
           {work.title}
-        </h1>
-        <div className="bg-white shadow-2xl rounded-lg p-6">
+        </motion.h1>
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="bg-white shadow-2xl rounded-lg p-6"
+        >
           <div className="mb-4">{work.header}</div>
           <h2 className="text-2xl font-semibold text-gray-800 mb-2">
             Deskripsi Proyek
@@ -32,8 +77,16 @@ export default function WorkDetail({ params }: WorkDetailProps) {
             Teknologi yang Digunakan
           </h2>
           <div className="flex gap-2">
-            {work.icon.map((icon, index) => (
-              <div key={index}>{icon}</div>
+            {work.icon.map((iconKey, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {iconMap[iconKey as keyof typeof iconMap] ?? (
+                  <span>Icon Not Found</span>
+                )}
+              </motion.div>
             ))}
           </div>
 
@@ -77,8 +130,31 @@ export default function WorkDetail({ params }: WorkDetailProps) {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex gap-4 mt-8 justify-center"
+        >
+          {work.domain && (
+            <Link
+              href={work.domain}
+              className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
+            >
+              Go to Domain
+            </Link>
+          )}
+          {work.github && (
+            <Link
+              href={work.github}
+              className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300"
+            >
+              Go to Github
+            </Link>
+          )}
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

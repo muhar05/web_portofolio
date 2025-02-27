@@ -1,4 +1,15 @@
 import { cn } from "@/app/lib/utils";
+import {
+  SiDart,
+  SiFlutter,
+  SiLaravel,
+  SiMongodb,
+  SiNextdotjs,
+  SiPhp,
+  SiReact,
+  SiSqlite,
+} from "react-icons/si";
+import { DiMysql } from "react-icons/di";
 
 export const BentoGrid = ({
   className,
@@ -17,6 +28,18 @@ export const BentoGrid = ({
       {children}
     </div>
   );
+};
+
+const iconMap: Record<string, JSX.Element> = {
+  SiNextdotjs: <SiNextdotjs className="h-6 w-6 text-neutral-500" />,
+  SiReact: <SiReact className="h-6 w-6 text-neutral-500" />,
+  SiMongodb: <SiMongodb className="h-6 w-6 text-neutral-500" />,
+  SiDart: <SiDart className="h-6 w-6 text-neutral-500" />,
+  SiFlutter: <SiFlutter className="h-6 w-6 text-neutral-500" />,
+  SiLaravel: <SiLaravel className="h-6 w-6 text-neutral-500" />,
+  SiPhp: <SiPhp className="h-6 w-6 text-neutral-500" />,
+  DiMysql: <DiMysql className="h-6 w-6 text-neutral-500" />,
+  SiSqlite: <SiSqlite className="h-6 w-6 text-neutral-500" />,
 };
 
 export const BentoGridItem = ({
@@ -51,8 +74,14 @@ export const BentoGridItem = ({
       <div className="group-hover/bento:translate-x-2 transition duration-200">
         <div className="flex flex-row space-x-2">
           {Array.isArray(icons)
-            ? icons.map((icon, index) => <span key={index}>{icon}</span>)
-            : icons}
+            ? icons.map((icon, index) =>
+                typeof icon === "string" ? (
+                  <span key={index}>{iconMap[icon] ?? null}</span>
+                ) : null
+              )
+            : typeof icons === "string"
+            ? iconMap[icons] ?? null
+            : null}
         </div>
         <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2 text-lg md:text-xl">
           {title}

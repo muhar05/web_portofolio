@@ -23,10 +23,12 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiTypeorm,
+  SiFlutter,
 } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { DiVisualstudio } from "react-icons/di";
 import { FlipWords } from "../../ui/FlipWords/page";
+import Link from "next/link";
 
 const HomePage = () => {
   const words =
@@ -47,7 +49,7 @@ const HomePage = () => {
     <FaLaravel size={50} color="#FF2D20" />,
     <SiTypescript size={50} color="#3178C6" />,
     <SiTailwindcss size={50} color="#06B6D4" />,
-    <BiLogoPostgresql size={50} color="#000000" />,
+    <SiFlutter size={50} color="#000000" />,
   ];
 
   const roleWords = [
@@ -64,9 +66,11 @@ const HomePage = () => {
             Hello! I am a<FlipWords words={roleWords} />
           </h1>
           <TextGenerateEffect words={words} />
-          <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200 mt-6">
-            Let's Get in Touch
-          </button>
+          <Link href="/link">
+            <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200 mt-6">
+              Let's Get in Touch
+            </button>
+          </Link>
         </div>
       </div>
       <div className="w-full h-full mobile:flex justify-center  items-center p-6">

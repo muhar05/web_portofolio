@@ -38,31 +38,27 @@ const Skeleton = () => (
 
 export const works: Work[] = [
   {
+    id: 1,
     slug: "teh-solo",
     title: "Web App Teh Solo Management System",
     description:
       "Teh Solo adalah aplikasi web bagi bisnis teh untuk mengelola penjualan, pengeluaran, dan inventaris dengan mudah dengan pelacakan stok otomatis dan waktu nyata.",
     header: <PortfolioImage src={Portfolio1} alt="Portfolio 1" />,
-    icon: [
-      <SiNextdotjs className="h-6 w-6 text-neutral-500" />,
-      <SiReact className="h-6 w-6 text-neutral-500" />,
-      <SiMongodb className="h-6 w-6 text-neutral-500" />,
-    ],
+    icon: ["SiNextdotjs", "SiReact", "SiMongodb"],
     ongoing: true,
     source: "closed-source",
+    domain: "https://tehsoloms.vercel.app",
   },
   {
+    id: 2,
     slug: "pharmacy-management",
     title: "Web App Pharmacy Management System",
     description: "Web App Pharmacy Management System",
     header: <PortfolioImage src={Portfolio2} alt="Portfolio 2" />,
-    icon: [
-      <SiLaravel className="h-6 w-6 text-neutral-500" />,
-      <DiMysql className="h-6 w-6 text-neutral-500" />,
-      <SiPhp className="h-6 w-6 text-neutral-500" />,
-    ],
+    icon: ["SiLaravel", "DiMysql", "SiPhp"],
     ongoing: false,
     source: "open-source",
+    github: "https://github.com/muhar05/pharmacy_management.git",
     documentation: [
       {
         title: "Pendahuluan",
@@ -178,15 +174,12 @@ export const works: Work[] = [
     ],
   },
   {
+    id: 3,
     slug: "coffee-shop-management",
     title: "Application Management Coffee Shop",
     description: "Application Management Coffee Shop",
     header: <Skeleton />,
-    icon: [
-      <SiFlutter className="h-6 w-6 text-neutral-500" />,
-      <SiDart className="h-6 w-6 text-neutral-500" />,
-      <SiSqlite className="h-6 w-6 text-neutral-500" />,
-    ],
+    icon: ["SiFlutter", "SiDart", "SiSqlite"],
     ongoing: true,
     source: "closed-source",
   },
