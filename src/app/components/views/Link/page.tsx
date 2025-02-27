@@ -9,9 +9,9 @@ import {
 const LinkPage = () => {
   return (
     <>
-      <div className="bg-slate-200 min-h-screen flex flex-col justify-center items-center p-6">
-        <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-2xl font-bold text-center mb-6">
+      <div className="bg-slate-200 min-h-screen flex flex-col justify-center items-center p-6 dark:bg-black transition-all">
+        <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 transition-all">
+          <h1 className="text-2xl font-bold text-center mb-6 dark:text-white transition-all">
             Connect with Me
           </h1>
           <div className="space-y-4">
