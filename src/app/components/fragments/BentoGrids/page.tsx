@@ -10,7 +10,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto px-4 md:px-6",
+        "grid auto-rows-[minmax(150px,auto)] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-4 max-w-7xl mx-auto px-4 md:px-6 grid-auto-flow-dense",
         className
       )}
     >
@@ -25,17 +25,25 @@ export const BentoGridItem = ({
   description,
   header,
   icons,
+  link,
+  colSpan = "col-span-1",
+  rowSpan = "row-span-1",
 }: {
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
   header?: React.ReactNode;
   icons?: React.ReactNode | React.ReactNode[];
+  link?: string;
+  colSpan?: string;
+  rowSpan?: string;
 }) => {
   return (
     <div
       className={cn(
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-between space-y-4",
+        "rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent flex flex-col justify-between space-y-4",
+        colSpan,
+        rowSpan,
         className
       )}
     >
@@ -53,12 +61,16 @@ export const BentoGridItem = ({
           {description}
         </div>
       </div>
-      <a
-        href="#"
-        className="group-hover/bento:translate-x-2 transition duration-200 font-sans font-bold text-sm md:text-base dark:text-neutral-200 bg-slate-800 w-fit p-2 rounded-md text-white hover:bg-slate-700"
-      >
-        See Live/Documentation
-      </a>
+      {link && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group-hover/bento:translate-x-2 transition duration-200 font-sans font-bold text-sm md:text-base dark:text-neutral-200 bg-slate-800 w-fit p-2 rounded-md text-white hover:bg-slate-700"
+        >
+          See Live/Documentation
+        </a>
+      )}
     </div>
   );
 };
