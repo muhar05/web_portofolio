@@ -19,7 +19,6 @@ import {
   SiTailwindcss,
   SiFlutter,
 } from "react-icons/si";
-import { FlipWords } from "../../ui/FlipWords";
 import Link from "next/link";
 
 const HomePage = () => {
@@ -44,22 +43,16 @@ const HomePage = () => {
     { icon: <SiFlutter size={50} color="#000000" />, key: "flutter" },
   ];
 
-  const roleWords = [
-    "Frontend Developer",
-    "Backend Developer",
-    "Fullstack Developer",
-  ];
-
   return (
-    <div className="w-full h-full bg-slate-200 overflow-x-hidden">
+    <div className="w-full h-full bg-slate-200 dark:bg-black overflow-x-hidden transition-all">
       <div className="flex w-full h-screen justify-center items-center">
         <div className="w-full p-6 mobile:w-1/2">
-          <h1 className="mobile:text-2xl text-2xl font-bold">
-            Hello! I am a<FlipWords words={roleWords} />
+          <h1 className="mobile:text-2xl text-2xl font-bold dark:text-white">
+            Hello! I am Muhar Ferdiansyah
           </h1>
           <TextGenerateEffect words={words} />
           <Link href="/link">
-            <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200 mt-6">
+            <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-white transition duration-200 mt-6">
               Let&apos;s Get in Touch
             </button>
           </Link>
@@ -67,8 +60,10 @@ const HomePage = () => {
       </div>
       <div className="w-full h-full mobile:flex justify-center  items-center p-6">
         <div className="w-full mb-6">
-          <h1 className="text-3xl font-bold">Skils And Tools</h1>
-          <p className="text-slate-600 text-2xl">
+          <h1 className="text-3xl font-bold dark:text-white">
+            Skils And Tools
+          </h1>
+          <p className="text-slate-600 dark:text-slate-200 text-2xl">
             For more details, please visit my GitHub profile.
           </p>
         </div>
@@ -77,7 +72,7 @@ const HomePage = () => {
             {icons.map(({ icon, key }) => (
               <div
                 key={key} // Pakai key yang unik di sini
-                className="flex justify-center items-center bg-slate-300 p-3 rounded-s-lg hover:bg-slate-400 transition-all duration-300"
+                className="flex justify-center items-center bg-slate-300 dark:bg-gray-900 p-3 rounded-s-lg hover:bg-slate-400 transition-all duration-300 dark:hover:bg-slate-300"
               >
                 {icon}
               </div>

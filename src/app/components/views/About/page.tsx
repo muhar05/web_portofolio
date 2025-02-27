@@ -8,7 +8,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <div className="bg-slate-200">
+      <div className="bg-slate-200 dark:bg-black transition-all">
         <div className="w-full mobile:h-screen gap-20 space-y-4 mobile:flex justify-center items-center p-10">
           <div className="flex justify-center items-center">
             <div className="w-56 h-56 rounded-full overflow-hidden shadow-lg border-green-500 border-2">
@@ -18,11 +18,12 @@ const AboutPage = () => {
                 width={500}
                 height={500}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </div>
           <div className="w-full h-full flex flex-col justify-center items-start">
-            <h1 className="text-3xl font-bold">About Me</h1>
+            <h1 className="text-3xl font-bold dark:text-white">About Me</h1>
             <TextGenerateEffect words={words1} />
           </div>
         </div>

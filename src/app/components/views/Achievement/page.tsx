@@ -35,9 +35,9 @@ const AchievementPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-6">
+    <div className="min-h-screen bg-slate-100 p-6 dark:bg-black">
       <div className="container mx-auto">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 dark:text-white">
           Achievements
         </h1>
         {/* Grid dengan 1 kolom di mobile dan 2 kolom di desktop */}
@@ -45,7 +45,7 @@ const AchievementPage = () => {
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="bg-white shadow-2xl rounded-lg p-6 text-center hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-300"
+              className="bg-white dark:bg-gray-900 shadow-2xl rounded-lg p-6 text-center hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-300"
             >
               <div className="mb-4">
                 {achievement.image.endsWith(".pdf") ? (
@@ -86,10 +86,10 @@ const AchievementPage = () => {
                   </div>
                 )}
               </div>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-white">
                 {achievement.title}
               </h2>
-              <p className="text-gray-600">{achievement.description}</p>
+              <p className="text-gray-600 dark:text-gray-300">{achievement.description}</p>
             </div>
           ))}
         </div>

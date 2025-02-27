@@ -6,7 +6,7 @@ import { BentoGridItem } from "../../fragments/BentoGrids/BentoGridItem";
 
 const WorksPage = () => {
   return (
-    <div className="w-full h-full bg-slate-200 p-4 md:p-6 lg:p-8">
+    <div className="w-full h-full bg-slate-200 dark:bg-black p-4 md:p-6 lg:p-8">
       <BentoGrid className="grid-cols-1 mobile:grid-cols-2 laptop:grid-cols-2">
         {works.map((item, i) => (
           <Link key={i} href={`/works/${item.slug}`} passHref>

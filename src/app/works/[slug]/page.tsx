@@ -19,15 +19,25 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 
 const iconMap: Record<string, JSX.Element> = {
-  SiNextdotjs: <SiNextdotjs className="h-6 w-6 text-neutral-500" />,
-  SiReact: <SiReact className="h-6 w-6 text-neutral-500" />,
-  SiMongodb: <SiMongodb className="h-6 w-6 text-neutral-500" />,
-  SiDart: <SiDart className="h-6 w-6 text-neutral-500" />,
-  SiFlutter: <SiFlutter className="h-6 w-6 text-neutral-500" />,
-  SiLaravel: <SiLaravel className="h-6 w-6 text-neutral-500" />,
-  SiPhp: <SiPhp className="h-6 w-6 text-neutral-500" />,
-  DiMysql: <DiMysql className="h-6 w-6 text-neutral-500" />,
-  SiSqlite: <SiSqlite className="h-6 w-6 text-neutral-500" />,
+  SiNextdotjs: (
+    <SiNextdotjs className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
+  ),
+  SiReact: <SiReact className="h-6 w-6 text-neutral-500 dark:text-gray-200" />,
+  SiMongodb: (
+    <SiMongodb className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
+  ),
+  SiDart: <SiDart className="h-6 w-6 text-neutral-500 dark:text-gray-200" />,
+  SiFlutter: (
+    <SiFlutter className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
+  ),
+  SiLaravel: (
+    <SiLaravel className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
+  ),
+  SiPhp: <SiPhp className="h-6 w-6 text-neutral-500 dark:text-gray-200" />,
+  DiMysql: <DiMysql className="h-6 w-6 text-neutral-500 dark:text-gray-200" />,
+  SiSqlite: (
+    <SiSqlite className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
+  ),
 };
 
 export default function WorkDetail() {
@@ -45,14 +55,14 @@ export default function WorkDetail() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-6"
+      className="min-h-screen bg-slate-200 dark:bg-black transition-all"
     >
       <div className="container mx-auto">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-4xl font-bold text-center text-gray-800 mb-8"
+          className="text-4xl font-bold text-center text-gray-800 mb-8 dark:text-white"
         >
           {work.title}
         </motion.h1>
@@ -60,14 +70,16 @@ export default function WorkDetail() {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-white shadow-2xl rounded-lg p-6"
+          className="bg-white shadow-2xl rounded-lg p-6 dark:bg-gray-900"
         >
           <div className="mb-4">{work.header}</div>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-sky-50">
             Deskripsi Proyek
           </h2>
-          <p className="text-gray-600 mb-4">{work.description}</p>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+          <p className="text-gray-600 mb-4 dark:text-gray-100">
+            {work.description}
+          </p>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-sky-50">
             Teknologi yang Digunakan
           </h2>
           <div className="flex gap-2">
@@ -87,18 +99,18 @@ export default function WorkDetail() {
           {/* Tampilkan dokumentasi jika ada */}
           {work.documentation && (
             <div className="mt-8">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4 dark:text-sky-50">
                 Dokumentasi
               </h2>
               {work.documentation.map((section, index) => (
                 <div key={index} className="mb-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-gray-100">
                     {section.title}
                   </h3>
                   {section.content.map((content, idx) => (
                     <div key={idx} className="mb-4">
                       {content.type === "text" ? (
-                        <p className="text-gray-600">{content.text}</p>
+                        <p className="text-gray-600 dark:text-gray-300">{content.text}</p>
                       ) : (
                         <div className="bg-gray-50 p-4 rounded-lg">
                           <p className="font-mono text-sm text-gray-800">
@@ -134,7 +146,7 @@ export default function WorkDetail() {
           {work.domain && (
             <Link
               href={work.domain}
-              className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
+              className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 mb-4"
             >
               Go to Domain
             </Link>
@@ -142,7 +154,7 @@ export default function WorkDetail() {
           {work.github && (
             <Link
               href={work.github}
-              className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300"
+              className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300 mb-4"
             >
               Go to Github
             </Link>
