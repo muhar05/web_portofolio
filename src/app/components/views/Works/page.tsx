@@ -1,7 +1,8 @@
 // app/works/page.tsx
 import { works } from "@/app/data/works/page";
-import { BentoGrid, BentoGridItem } from "../../fragments/BentoGrids/page";
 import Link from "next/link";
+import { BentoGrid } from "../../fragments/BentoGrids/BentoGrid";
+import { BentoGridItem } from "../../fragments/BentoGrids/BentoGridItem";
 
 const WorksPage = () => {
   return (

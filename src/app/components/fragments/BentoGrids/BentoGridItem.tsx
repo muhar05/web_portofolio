@@ -1,4 +1,3 @@
-import { cn } from "@/app/lib/utils";
 import {
   SiDart,
   SiFlutter,
@@ -10,25 +9,7 @@ import {
   SiSqlite,
 } from "react-icons/si";
 import { DiMysql } from "react-icons/di";
-
-export const BentoGrid = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children?: React.ReactNode;
-}) => {
-  return (
-    <div
-      className={cn(
-        "grid auto-rows-[minmax(150px,auto)] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-4 max-w-7xl mx-auto px-4 md:px-6 grid-auto-flow-dense",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-};
+import { cn } from "@/app/lib/utils";
 
 const iconMap: Record<string, JSX.Element> = {
   SiNextdotjs: <SiNextdotjs className="h-6 w-6 text-neutral-500" />,
