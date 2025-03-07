@@ -1,6 +1,7 @@
 import { Work } from "@/types/page";
 import Portfolio1 from "../../../../public/img/port1.png";
 import Portfolio2 from "../../../../public/img/port2.png";
+import Portfolio3 from "../../../../public/img/port3.png";
 import Image, { StaticImageData } from "next/image";
 
 interface PortfolioImageProps {
@@ -167,7 +168,7 @@ export const works: Work[] = [
     slug: "coffee-shop-management",
     title: "Application Management Coffee Shop",
     description: "Application Management Coffee Shop",
-    header: <Skeleton />,
+    header: <PortfolioImage src={Portfolio3} alt="Portfolio 1" />,
     icon: ["SiFlutter", "SiDart", "SiSqlite"],
     ongoing: true,
     source: "closed-source",
