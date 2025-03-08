@@ -6,7 +6,7 @@ import { cn } from "@/app/lib/utils";
 export const TextGenerateEffect = ({
   words,
   className,
-  duration = 0.02, // Sesuaikan durasi untuk setiap karakter
+  duration = 0.02, // Durasi untuk setiap karakter
 }: {
   words: string;
   className?: string;
@@ -16,16 +16,24 @@ export const TextGenerateEffect = ({
   const charactersArray = words.split(""); // Membagi string menjadi karakter per karakter
 
   useEffect(() => {
-    animate("span", { opacity: 1 }, { duration, delay: stagger(duration) });
+    animate(
+      "span",
+      { opacity: 1, y: 0 },
+      { duration: 0.5, delay: stagger(duration) }
+    );
   }, [scope, animate, duration]);
 
   const renderCharacters = () => {
     return (
-      <motion.div ref={scope}>
+      <motion.div ref={scope} className="inline-block">
         {charactersArray.map((char, idx) => (
           <motion.span
             key={idx}
-            className="dark:text-white font-medium text-slate-600 opacity-0"
+            className={cn(
+              "inline-block opacity-0 translate-y-10", // Default state (hidden)
+              char === " " ? "inline-block w-2" : "", // Tambahkan spasi jika karakter adalah spasi
+              "dark:text-white text-slate-600 font-medium" // Text styling
+            )}
           >
             {char}
           </motion.span>

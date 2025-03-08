@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import ProfilePicture from "../../../../../public/img/profile_picture.jpg";
-import { TextGenerateEffect } from "../../ui/TextGeneratedEffects";
+import { motion } from "framer-motion";
 
 const AboutPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,8 +37,22 @@ const AboutPage = () => {
             </div>
           </div>
           <div className="w-full h-full flex flex-col justify-center items-start">
-            <h1 className="text-3xl font-bold dark:text-white">About Me</h1>
-            <TextGenerateEffect words={words1} />
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-3xl font-bold dark:text-white"
+            >
+              About Me
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="mt-4 dark:text-white text-2xl"
+            >
+              {words1}
+            </motion.p>
           </div>
         </div>
       </div>

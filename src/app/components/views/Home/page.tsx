@@ -1,4 +1,5 @@
-import { TextGenerateEffect } from "../../ui/TextGeneratedEffects";
+'use client';
+
 import {
   FaReact,
   FaNode,
@@ -20,6 +21,7 @@ import {
   SiFlutter,
 } from "react-icons/si";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const HomePage = () => {
   const words =
@@ -47,10 +49,22 @@ const HomePage = () => {
     <div className="w-full h-full bg-slate-200 dark:bg-black overflow-x-hidden transition-all">
       <div className="flex w-full h-screen justify-center items-center">
         <div className="w-full p-6 mobile:w-1/2">
-          <h1 className="mobile:text-2xl text-2xl font-bold dark:text-white">
+          <motion.h1
+            className="mobile:text-3xl text-2xl font-bold dark:text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Hello! I am Muhar Ferdiansyah
-          </h1>
-          <TextGenerateEffect words={words} />
+          </motion.h1>
+          <motion.p
+            className="text-slate-600 dark:text-slate-200 text-2xl mt-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
+            {words}
+          </motion.p>
           <Link href="/link">
             <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-white transition duration-200 mt-6">
               Let&apos;s Get in Touch
