@@ -1,10 +1,5 @@
 "use client";
-import {
-  FaEnvelope,
-  FaLinkedin,
-  FaGithub,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 const LinkPage = () => {
   return (
@@ -29,7 +24,12 @@ const LinkPage = () => {
             {/* Get Resume */}
             <button
               className="w-full flex items-center justify-center space-x-2 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition"
-              onClick={() => window.open("/path-to-resume.pdf", "_blank")}
+              onClick={() =>
+                window.open(
+                  "https://drive.google.com/file/d/1mMb8tceU-K1hCH36BauwtH0vOiMjekOO/view?usp=drive_link",
+                  "_blank"
+                )
+              }
             >
               <FaEnvelope className="h-5 w-5" />
               <span>Get My Resume</span>
