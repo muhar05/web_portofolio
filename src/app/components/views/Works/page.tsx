@@ -8,7 +8,7 @@ const WorksPage = () => {
     <div className="w-full h-full bg-slate-200 dark:bg-black p-4 md:p-6 lg:p-8">
       <BentoGrid className="grid-cols-1 mobile:grid-cols-2 laptop:grid-cols-2">
         {works.map((item, i) => (
-          <Link key={i} href={`/works/${item.slug}`} passHref>
+          <div>
             <BentoGridItem
               title={
                 <>
@@ -35,8 +35,9 @@ const WorksPage = () => {
               icons={item.icon}
               colSpan={i === 3 || i === 6 ? "col-span-2" : "col-span-1"}
               rowSpan="row-span-1"
+              link={item.domain ?? item.github ?? "#"}
             />
-          </Link>
+          </div>
         ))}
       </BentoGrid>
     </div>

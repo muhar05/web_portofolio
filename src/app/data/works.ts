@@ -8,7 +8,7 @@ export const works = [
     slug: "teh-solo",
     title: "Web App Teh Solo Management System",
     description:
-      "Teh Solo adalah aplikasi web bagi bisnis teh untuk mengelola penjualan, pengeluaran, dan inventaris dengan mudah dengan pelacakan stok otomatis dan waktu nyata.",
+      "Teh Solo is a web application for tea businesses to easily manage sales, expenses and inventory with automatic and real-time stock tracking.",
     header: Portfolio1, // Tetap menggunakan StaticImageData
     icon: ["SiNextdotjs", "SiReact", "SiMongodb"],
     ongoing: true,
@@ -19,7 +19,8 @@ export const works = [
     id: 2,
     slug: "pharmacy-management",
     title: "Web App Pharmacy Management System",
-    description: "Web App Pharmacy Management System",
+    description:
+      "Web App Pharmacy Management System is a web-based application to manage pharmacy operations digitally. Its main features include drug management, prescription-based sales, stock monitoring with notifications, transaction tracking, and customer and supplier data management, so that pharmacy operations are more efficient and organized.",
     header: Portfolio2,
     icon: ["SiLaravel", "DiMysql", "SiPhp"],
     ongoing: false,
@@ -30,7 +31,8 @@ export const works = [
     id: 3,
     slug: "coffee-shop-management",
     title: "Application Management Coffee Shop",
-    description: "Application Management Coffee Shop",
+    description:
+      "Application Management Coffee Shop is a mobile-based application to manage cafe operations digitally. Its main features include menu management, sales, tracking",
     header: Portfolio3,
     icon: ["SiFlutter", "SiDart", "SiSqlite"],
     ongoing: true,

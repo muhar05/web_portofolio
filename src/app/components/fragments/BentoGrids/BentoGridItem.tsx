@@ -12,6 +12,7 @@ import { DiMysql } from "react-icons/di";
 import { cn } from "@/app/lib/utils";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
+import Link from "next/link";
 
 const iconMap: Record<string, JSX.Element> = {
   SiNextdotjs: <SiNextdotjs className="h-6 w-6 text-neutral-500" />,
@@ -57,9 +58,9 @@ export const BentoGridItem = ({
         <Image
           src={header}
           alt="Header image"
-          className="rounded-lg"
-          width={200} // Adjust width as needed
-          height={200} // Adjust height as needed
+          className="rounded-lg w-full h-full object-cover"
+          width={500} // Adjust width as needed
+          height={500} // Adjust height as needed
         />
       )}
       <div className="group-hover/bento:translate-x-2 transition duration-200">
@@ -77,20 +78,18 @@ export const BentoGridItem = ({
         <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2 text-lg md:text-xl">
           {title}
         </div>
-        <div className="font-sans font-normal text-neutral-600 text-sm md:text-base dark:text-neutral-300 truncate">
+        <div className="font-sans font-normal text-neutral-600 text-sm md:text-base dark:text-neutral-300 min-h-[80px]">
           {description}
         </div>
       </div>
-      {link && (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group-hover/bento:translate-x-2 transition duration-200 font-sans font-bold text-sm md:text-base dark:text-neutral-200 bg-slate-800 w-fit p-2 rounded-md text-white hover:bg-slate-700"
-        >
-          See Live/Documentation
-        </a>
-      )}
+      <Link
+        href={link ?? "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group-hover/bento:translate-x-2 transition duration-200 font-sans font-bold text-sm md:text-base dark:text-neutral-200 bg-slate-800 w-fit p-2 rounded-md text-white hover:bg-slate-700"
+      >
+        See Live/Documentation
+      </Link>
     </div>
   );
 };
