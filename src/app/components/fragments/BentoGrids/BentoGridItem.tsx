@@ -10,6 +10,8 @@ import {
 } from "react-icons/si";
 import { DiMysql } from "react-icons/di";
 import { cn } from "@/app/lib/utils";
+import { StaticImageData } from "next/image";
+import Image from "next/image";
 
 const iconMap: Record<string, JSX.Element> = {
   SiNextdotjs: <SiNextdotjs className="h-6 w-6 text-neutral-500" />,
@@ -36,7 +38,7 @@ export const BentoGridItem = ({
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
-  header?: React.ReactNode;
+  header?: StaticImageData;
   icons?: React.ReactNode | React.ReactNode[];
   link?: string;
   colSpan?: string;
@@ -51,7 +53,15 @@ export const BentoGridItem = ({
         className
       )}
     >
-      {header}
+      {header && (
+        <Image
+          src={header}
+          alt="Header image"
+          className="rounded-lg"
+          width={200} // Adjust width as needed
+          height={200} // Adjust height as needed
+        />
+      )}
       <div className="group-hover/bento:translate-x-2 transition duration-200">
         <div className="flex flex-row space-x-2">
           {Array.isArray(icons)

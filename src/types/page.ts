@@ -1,9 +1,11 @@
+import { StaticImageData } from "next/image";
+
 export interface Work {
   id: number;
   slug: string;
   title: string;
   description: string;
-  header: React.ReactNode;
+  header: StaticImageData;
   icon: React.ReactNode[];
   ongoing: boolean;
   source: "open-source" | "closed-source";
