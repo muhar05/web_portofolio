@@ -15,10 +15,10 @@ import {
 import { DiMysql } from "react-icons/di";
 import { motion } from "framer-motion";
 
-interface Props {
-  params: {
-    slug: string;
-  };
+export function generateStaticParams() {
+  return works.map((work) => ({
+    slug: work.slug,
+  }));
 }
 
 const iconMap: Record<string, JSX.Element> = {
@@ -33,13 +33,7 @@ const iconMap: Record<string, JSX.Element> = {
   SiSqlite: <SiSqlite className="h-6 w-6 text-gray-500" />,
 };
 
-export function generateStaticParams() {
-  return works.map((work) => ({
-    slug: work.slug.toString(),
-  }));
-}
-
-export default function WorkDetail({ params }: Props) {
+export default function WorkDetail({ params }: { params: { slug: string } }) {
   const work = works.find((work) => work.slug === params.slug);
 
   if (!work) {
@@ -68,7 +62,6 @@ export default function WorkDetail({ params }: Props) {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="bg-white shadow-2xl rounded-lg p-6 dark:bg-gray-900"
         >
-          {/* Tampilkan gambar di sini */}
           <div className="mb-4 flex justify-center">
             <Image
               src={work.header}
