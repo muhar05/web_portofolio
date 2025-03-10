@@ -1,5 +1,4 @@
-// app/works/page.tsx
-import { works } from "@/app/data/works/page";
+import { works } from "@/app/data/works";
 import Link from "next/link";
 import { BentoGrid } from "../../fragments/BentoGrids/BentoGrid";
 import { BentoGridItem } from "../../fragments/BentoGrids/BentoGridItem";

@@ -1,4 +1,4 @@
-import { works } from "@/app/data/works/page";
+import { works } from "@/app/data/works";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Image from "next/image";
