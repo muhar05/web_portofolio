@@ -1,7 +1,6 @@
-import Image from "next/image";
-import Portfolio1 from "../../../../public/img/port1.png";
-import Portfolio2 from "../../../../public/img/port2.png";
-import Portfolio3 from "../../../../public/img/port3.png";
+import Portfolio1 from "../../../public/img/port1.png";
+import Portfolio2 from "../../../public/img/port2.png";
+import Portfolio3 from "../../../public/img/port3.png";
 
 export const works = [
   {
