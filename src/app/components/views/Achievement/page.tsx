@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaFilePdf, FaExternalLinkAlt } from "react-icons/fa";
-import { MdEmojiEvents } from "react-icons/md"; // Ikon tambahan dari react-icons
+import { MdEmojiEvents } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const AchievementPage = () => {
   const achievements = [
@@ -37,24 +38,32 @@ const AchievementPage = () => {
   return (
     <div className="min-h-screen bg-slate-100 p-6 dark:bg-black">
       <div className="container mx-auto">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 dark:text-white">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold text-center text-gray-800 mb-8 dark:text-white"
+        >
           Achievements
-        </h1>
-        {/* Grid dengan 1 kolom di mobile dan 2 kolom di desktop */}
+        </motion.h1>
         <div className="grid grid-cols-1 mobile:grid-cols-2 gap-6">
           {achievements.map((achievement, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white dark:bg-gray-900 shadow-2xl rounded-lg p-6 text-center hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-300"
             >
               <div className="mb-4">
                 {achievement.image.endsWith(".pdf") ? (
                   <div className="flex flex-col items-center">
-                    {/* Ikon PDF dengan animasi */}
-                    <div className="animate-bounce">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ repeat: Infinity, duration: 1.5 }}
+                    >
                       <FaFilePdf size={60} className="text-red-500 mb-2" />
-                    </div>
-                    {/* Tombol untuk membuka PDF */}
+                    </motion.div>
                     <a
                       href={achievement.image}
                       target="_blank"
@@ -75,13 +84,15 @@ const AchievementPage = () => {
                   />
                 ) : (
                   <div className="flex flex-col items-center">
-                    {/* Ikon default dengan animasi */}
-                    <div className="animate-pulse">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ repeat: Infinity, duration: 1.5 }}
+                    >
                       <MdEmojiEvents
                         size={60}
                         className="text-yellow-500 mb-2"
                       />
-                    </div>
+                    </motion.div>
                     <p className="text-gray-500">No Image Available</p>
                   </div>
                 )}
@@ -89,8 +100,10 @@ const AchievementPage = () => {
               <h2 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-white">
                 {achievement.title}
               </h2>
-              <p className="text-gray-600 dark:text-gray-300">{achievement.description}</p>
-            </div>
+              <p className="text-gray-600 dark:text-gray-300">
+                {achievement.description}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>
