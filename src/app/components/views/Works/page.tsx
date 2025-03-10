@@ -1,3 +1,5 @@
+'use client';
+
 import { works } from "@/app/data/works";
 import { BentoGrid } from "../../fragments/BentoGrids/BentoGrid";
 import { BentoGridItem } from "../../fragments/BentoGrids/BentoGridItem";
