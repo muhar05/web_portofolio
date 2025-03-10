@@ -7,7 +7,7 @@ const WorksPage = () => {
     <div className="w-full h-full bg-slate-200 dark:bg-black p-4 md:p-6 lg:p-8">
       <BentoGrid className="grid-cols-1 mobile:grid-cols-2 laptop:grid-cols-2">
         {works.map((item, i) => (
-          <div>
+          <div key={item.id}>
             <BentoGridItem
               title={
                 <>
