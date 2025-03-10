@@ -1,9 +1,7 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import { works } from "@/app/data/works/page";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import {
   SiDart,
   SiFlutter,
@@ -16,35 +14,33 @@ import {
 } from "react-icons/si";
 import { DiMysql } from "react-icons/di";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+
+interface Props {
+  params: {
+    slug: string;
+  };
+}
 
 const iconMap: Record<string, JSX.Element> = {
-  SiNextdotjs: (
-    <SiNextdotjs className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
-  ),
-  SiReact: <SiReact className="h-6 w-6 text-neutral-500 dark:text-gray-200" />,
-  SiMongodb: (
-    <SiMongodb className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
-  ),
-  SiDart: <SiDart className="h-6 w-6 text-neutral-500 dark:text-gray-200" />,
-  SiFlutter: (
-    <SiFlutter className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
-  ),
-  SiLaravel: (
-    <SiLaravel className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
-  ),
-  SiPhp: <SiPhp className="h-6 w-6 text-neutral-500 dark:text-gray-200" />,
-  DiMysql: <DiMysql className="h-6 w-6 text-neutral-500 dark:text-gray-200" />,
-  SiSqlite: (
-    <SiSqlite className="h-6 w-6 text-neutral-500 dark:text-gray-200" />
-  ),
+  SiNextdotjs: <SiNextdotjs className="h-6 w-6 text-gray-500" />,
+  SiReact: <SiReact className="h-6 w-6 text-gray-500" />,
+  SiMongodb: <SiMongodb className="h-6 w-6 text-gray-500" />,
+  SiDart: <SiDart className="h-6 w-6 text-gray-500" />,
+  SiFlutter: <SiFlutter className="h-6 w-6 text-gray-500" />,
+  SiLaravel: <SiLaravel className="h-6 w-6 text-gray-500" />,
+  SiPhp: <SiPhp className="h-6 w-6 text-gray-500" />,
+  DiMysql: <DiMysql className="h-6 w-6 text-gray-500" />,
+  SiSqlite: <SiSqlite className="h-6 w-6 text-gray-500" />,
 };
 
-export default function WorkDetail() {
-  const params = useParams(); // Ambil params dari Next.js
-  const slug = params?.slug as string; // Pastikan slug bertipe string
+export function generateStaticParams() {
+  return works.map((work) => ({
+    slug: work.slug.toString(),
+  }));
+}
 
-  const work = useMemo(() => works.find((w) => w.slug === slug), [slug]);
+export default function WorkDetail({ params }: Props) {
+  const work = works.find((work) => work.slug === params.slug);
 
   if (!work) {
     return notFound();
@@ -72,13 +68,24 @@ export default function WorkDetail() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="bg-white shadow-2xl rounded-lg p-6 dark:bg-gray-900"
         >
-          <div className="mb-4">{work.header}</div>
+          {/* Tampilkan gambar di sini */}
+          <div className="mb-4 flex justify-center">
+            <Image
+              src={work.header}
+              alt={work.title}
+              width={500}
+              height={500}
+              className="rounded-xl object-cover"
+            />
+          </div>
+
           <h2 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-sky-50">
             Deskripsi Proyek
           </h2>
           <p className="text-gray-600 mb-4 dark:text-gray-100">
             {work.description}
           </p>
+
           <h2 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-sky-50">
             Teknologi yang Digunakan
           </h2>
@@ -89,54 +96,14 @@ export default function WorkDetail() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                {iconMap[iconKey as keyof typeof iconMap] ?? (
-                  <span>Icon Not Found</span>
+                {iconMap[iconKey] ?? (
+                  <span className="text-red-500">Icon Not Found</span>
                 )}
               </motion.div>
             ))}
           </div>
-
-          {/* Tampilkan dokumentasi jika ada */}
-          {work.documentation && (
-            <div className="mt-8">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4 dark:text-sky-50">
-                Dokumentasi
-              </h2>
-              {work.documentation.map((section, index) => (
-                <div key={index} className="mb-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-gray-100">
-                    {section.title}
-                  </h3>
-                  {section.content.map((content, idx) => (
-                    <div key={idx} className="mb-4">
-                      {content.type === "text" ? (
-                        <p className="text-gray-600 dark:text-gray-300">{content.text}</p>
-                      ) : (
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <p className="font-mono text-sm text-gray-800">
-                            <span className="font-bold">
-                              {content.endpoint?.method}
-                            </span>{" "}
-                            {content.endpoint?.path}
-                          </p>
-                          {content.endpoint?.middleware && (
-                            <p className="text-sm text-gray-600 mt-1">
-                              <span className="font-semibold">Middleware:</span>{" "}
-                              {content.endpoint.middleware}
-                            </p>
-                          )}
-                          <p className="text-sm text-gray-600 mt-1">
-                            {content.endpoint?.description}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
         </motion.div>
+
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -146,7 +113,7 @@ export default function WorkDetail() {
           {work.domain && (
             <Link
               href={work.domain}
-              className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 mb-4"
+              className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
             >
               Go to Domain
             </Link>
@@ -154,7 +121,7 @@ export default function WorkDetail() {
           {work.github && (
             <Link
               href={work.github}
-              className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300 mb-4"
+              className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300"
             >
               Go to Github
             </Link>
