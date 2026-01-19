@@ -13,7 +13,7 @@ const WorksPage = () => {
           Featured Projects
         </h1>
         <BentoGrid>
-          {works.map((work, idx) => (
+          {works.map((work) => (
             <BentoGridItem
               key={work.id}
               title={work.title}
