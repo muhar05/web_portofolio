@@ -1,47 +1,61 @@
-'use client';
+"use client";
 
 import { works } from "@/app/data/works";
-import { BentoGrid } from "../../fragments/BentoGrids/BentoGrid";
-import { BentoGridItem } from "../../fragments/BentoGrids/BentoGridItem";
+import { BentoGrid } from "@/app/components/fragments/BentoGrids/BentoGrid";
+import { BentoGridItem } from "@/app/components/fragments/BentoGrids/BentoGridItem";
+import { motion } from "framer-motion";
 
 const WorksPage = () => {
   return (
-    <div className="w-full h-full bg-slate-200 dark:bg-black p-4 md:p-6 lg:p-8">
-      <BentoGrid className="grid-cols-1 mobile:grid-cols-2 laptop:grid-cols-2">
-        {works.map((item, i) => (
-          <div key={item.id}>
+    <main className="w-full min-h-screen bg-slate-200 dark:bg-black transition-all py-10">
+      <section className="max-w-7xl mx-auto px-4 md:px-6">
+        <h1 className="text-3xl font-bold mb-8 dark:text-white">
+          Featured Projects
+        </h1>
+        <BentoGrid>
+          {works.map((work, idx) => (
             <BentoGridItem
-              title={
-                <>
-                  {item.title}
-                  {item.ongoing && (
-                    <span className="ml-2 text-xs text-yellow-500 font-semibold bg-yellow-100 rounded-full px-2 py-1">
-                      Ongoing
-                    </span>
-                  )}
-                  {item.source === "open-source" && (
-                    <span className="ml-2 text-xs text-green-500 font-semibold bg-green-100 rounded-full px-2 py-1">
-                      Open Source
-                    </span>
-                  )}
-                  {item.source === "closed-source" && (
-                    <span className="ml-2 text-xs text-red-500 font-semibold bg-red-100 rounded-full px-2 py-1">
-                      Closed Source
-                    </span>
-                  )}
-                </>
+              key={work.id}
+              title={work.title}
+              description={
+                <div>
+                  <div className="mb-2">{work.description}</div>
+                  <div className="mb-2 text-xs text-slate-500 dark:text-slate-400">
+                    <span className="font-semibold">{work.role}</span>
+                    {work.ongoing && (
+                      <span className="ml-2 px-2 py-0.5 rounded bg-blue-100 text-blue-700 text-xs">
+                        Ongoing
+                      </span>
+                    )}
+                    {work.source === "open-source" && (
+                      <span className="ml-2 px-2 py-0.5 rounded bg-green-100 text-green-700 text-xs">
+                        Open Source
+                      </span>
+                    )}
+                  </div>
+                  <ul className="list-disc pl-5 text-sm text-slate-600 dark:text-slate-300 space-y-1">
+                    {work.impact?.map((item: string, i: number) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 * i, duration: 0.3 }}
+                        viewport={{ once: true }}
+                      >
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
               }
-              description={item.description}
-              header={item.header}
-              icons={item.icon}
-              colSpan={i === 3 || i === 6 ? "col-span-2" : "col-span-1"}
-              rowSpan="row-span-1"
-              link={item.domain ?? item.github ?? "#"}
+              header={work.header}
+              icons={work.icon}
+              link={work.domain || work.github || "#"}
             />
-          </div>
-        ))}
-      </BentoGrid>
-    </div>
+          ))}
+        </BentoGrid>
+      </section>
+    </main>
   );
 };
 

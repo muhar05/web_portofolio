@@ -1,4 +1,7 @@
-'use client';
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 import {
   FaReact,
@@ -19,82 +22,139 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiFlutter,
+  SiPostgresql,
+  SiCsharp,
 } from "react-icons/si";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { DiJava, DiPython } from "react-icons/di";
 
 const HomePage = () => {
-  const words =
-    "I am a Fullstack Developer with experience in developing applications from frontend to backend, ready to help bring your ideas to life.";
-  const icons = [
-    { icon: <FaReact size={50} color="#61DBFB" />, key: "react" },
-    { icon: <FaNode size={50} color="#68A063" />, key: "node" },
-    { icon: <FaJs size={50} color="#F0DB4F" />, key: "js" },
-    { icon: <FaGithub size={50} color="#000000" />, key: "github" },
-    { icon: <FaVuejs size={50} color="#41B883" />, key: "vue" },
-    { icon: <FaPhp size={50} color="#06B6D4" />, key: "php" },
-    { icon: <SiExpress size={50} color="#000000" />, key: "express" },
-    { icon: <SiMongodb size={50} color="#000000" />, key: "mongodb" },
-    { icon: <SiMysql size={50} color="#00000" />, key: "mysql" },
-    { icon: <SiSqlite size={50} color="#000000" />, key: "sqlite" },
-    { icon: <SiNestjs size={50} color="#E0234E" />, key: "nestjs" },
-    { icon: <SiNextdotjs size={50} color="#000000" />, key: "nextjs" },
-    { icon: <FaLaravel size={50} color="#FF2D20" />, key: "laravel" },
-    { icon: <SiTypescript size={50} color="#3178C6" />, key: "typescript" },
-    { icon: <SiTailwindcss size={50} color="#06B6D4" />, key: "tailwind" },
-    { icon: <SiFlutter size={50} color="#000000" />, key: "flutter" },
-  ];
+  const skills = {
+    frontend: [
+      { icon: FaReact, name: "React" },
+      { icon: SiNextdotjs, name: "Next.js" },
+      { icon: FaVuejs, name: "Vue" },
+      { icon: SiTailwindcss, name: "Tailwind" },
+      { icon: FaJs, name: "JavaScript" },
+      { icon: SiTypescript, name: "TypeScript" },
+    ],
+    backend: [
+      { icon: FaNode, name: "Node.js" },
+      { icon: SiExpress, name: "Express" },
+      { icon: FaLaravel, name: "Laravel" },
+      { icon: SiNestjs, name: "NestJS" },
+      { icon: FaPhp, name: "PHP" },
+      { icon: DiJava, name: "Java" },
+      { icon: SiCsharp, name: "C#" },
+      { icon: DiPython, name: "Python" },
+    ],
+    database: [
+      { icon: SiMongodb, name: "MongoDB" },
+      { icon: SiMysql, name: "MySQL" },
+      { icon: SiSqlite, name: "SQLite" },
+      { icon: SiPostgresql, name: "PostgreSQL" },
+    ],
+    tools: [
+      { icon: FaGithub, name: "GitHub" },
+      { icon: SiFlutter, name: "Flutter" },
+    ],
+  };
 
   return (
-    <div className="w-full h-full bg-slate-200 dark:bg-black overflow-x-hidden transition-all">
-      <div className="flex w-full h-screen justify-center items-center">
-        <div className="w-full p-6 mobile:w-1/2">
+    <main className="w-full bg-slate-200 dark:bg-black transition-all">
+      {/* HERO */}
+      <section className="min-h-screen flex items-center justify-center p-6">
+        <div className="max-w-2xl">
           <motion.h1
-            className="mobile:text-3xl text-2xl font-bold dark:text-white"
+            className="text-3xl md:text-4xl font-bold dark:text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.5 }}
           >
-            Hello! I am Muhar Ferdiansyah
+            Muhar Ferdiansyah
           </motion.h1>
+
           <motion.p
-            className="text-slate-600 dark:text-slate-200 text-2xl mt-4"
+            className="mt-2 text-xl text-slate-600 dark:text-slate-300"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            transition={{ delay: 0.1 }}
           >
-            {words}
+            Remote Fullstack Developer
           </motion.p>
-          <Link href="/link">
-            <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-white transition duration-200 mt-6">
-              Let&apos;s Get in Touch
-            </button>
-          </Link>
-        </div>
-      </div>
-      <div className="w-full h-full mobile:flex justify-center  items-center p-6">
-        <div className="w-full mb-6">
-          <h1 className="text-3xl font-bold dark:text-white">
-            Skils And Tools
-          </h1>
-          <p className="text-slate-600 dark:text-slate-200 text-2xl">
-            For more details, please visit my GitHub profile.
-          </p>
-        </div>
-        <div className="w-full">
-          <div className="grid grid-cols-4 gap-2">
-            {icons.map(({ icon, key }) => (
-              <div
-                key={key} // Pakai key yang unik di sini
-                className="flex justify-center items-center bg-slate-300 dark:bg-gray-900 p-3 rounded-s-lg hover:bg-slate-400 transition-all duration-300 dark:hover:bg-slate-300"
+
+          <motion.p
+            className="mt-4 text-base text-slate-600 dark:text-slate-400"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            I build web applications from frontend to backend. 1+ year
+            experience as a freelance developer. Focused on clean and
+            maintainable code.
+          </motion.p>
+
+          {/* MINI SUMMARY */}
+          <ul className="mt-6 space-y-2 text-slate-600 dark:text-slate-400">
+            {[
+              "Remote freelance experience",
+              "Web application focus",
+              "Clean and scalable code",
+            ].map((text, i) => (
+              <motion.li
+                key={text}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
               >
-                {icon}
-              </div>
+                • {text}
+              </motion.li>
             ))}
+          </ul>
+
+          {/* CTA */}
+          <div className="mt-8 flex gap-4">
+            <Link href="/works">
+              <button className="px-6 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black font-medium">
+                View Projects
+              </button>
+            </Link>
+
+            <Link href="/link">
+              <button className="px-6 py-3 rounded-full border border-black dark:border-white dark:text-white">
+                Contact Me
+              </button>
+            </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* SKILLS */}
+      <section className="p-6 max-w-5xl mx-auto">
+        <h2 className="text-2xl font-bold dark:text-white mb-6">
+          Skills & Tools
+        </h2>
+
+        {Object.entries(skills).map(([group, items]) => (
+          <div key={group} className="mb-8">
+            <h3 className="capitalize font-semibold mb-4 dark:text-white">
+              {group}
+            </h3>
+
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+              {items.map(({ icon: Icon, name }) => (
+                <div
+                  key={name}
+                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-slate-300 dark:bg-gray-700 hover:bg-slate-400 dark:hover:bg-slate-800 transition"
+                >
+                  <Icon className="text-3xl text-current" />
+                  <span className="text-sm dark:text-white">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+    </main>
   );
 };
 
