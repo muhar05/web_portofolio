@@ -51,7 +51,7 @@ const AboutPage = () => {
                 alt="Muhar Ferdiansyah profile"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
-                onLoadingComplete={() => setIsLoading(false)}
+                onLoad={() => setIsLoading(false)}
                 priority
               />
             </div>
