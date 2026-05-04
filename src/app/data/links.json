@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Email Me",
+    "url": "mailto:ferdiansyahmuh5@gmail.com",
+    "icon": "FaEnvelope",
+    "color": "bg-blue-500"
+  },
+  {
+    "title": "Download Resume",
+    "url": "/resume.pdf",
+    "icon": "FaFileDownload",
+    "color": "bg-indigo-600"
+  },
+  {
+    "title": "LinkedIn Profile",
+    "url": "https://www.linkedin.com/in/muhar-ferdiansyah-b44161291",
+    "icon": "FaLinkedin",
+    "color": "bg-[#0077b5]"
+  },
+  {
+    "title": "GitHub Portfolio",
+    "url": "https://github.com/muhar05",
+    "icon": "FaGithub",
+    "color": "bg-[#333]"
+  },
+  {
+    "title": "Instagram",
+    "url": "https://instagram.com/zx.harr",
+    "icon": "FaInstagram",
+    "color": "bg-[#e4405f]"
+  }
+]

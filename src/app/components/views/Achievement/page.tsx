@@ -1,116 +1,90 @@
 "use client";
 
-import Image from "next/image";
-import { FaFilePdf, FaExternalLinkAlt } from "react-icons/fa";
-import { MdEmojiEvents } from "react-icons/md";
+import achievements from "@/app/data/achievements.json";
+import { FaFilePdf, FaExternalLinkAlt, FaAward } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const AchievementPage = () => {
-  const achievements = [
-    {
-      title: "Belajar Membuat Aplikasi Flutter untuk Pemula",
-      description:
-        "Pemula yang ingin memulai kariernya di bidang Flutter Development dengan mengacu pada standar industri. Di akhir kelas, siswa dapat membuat aplikasi Flutter dengan memanfaatkan widget untuk menyusun layout-nya.",
-      image: "/img/certif/flutter.pdf",
-    },
-    {
-      title: "Memulai Pemrograman dengan Dart",
-      description:
-        "Kelas ditujukan bagi pemula yang ingin belajar dasar bahasa pemrograman Dart dengan mengacu pada standar industri. Di akhir kelas, siswa dapat membuat program Dart dengan menggunakan IDE IntelliJ IDEA atau IDE Online seperti DartPad.",
-      image: "/img/certif/dart.pdf",
-    },
-    {
-      title: "Kelas Belajar Menguasai Nest.js",
-      description:
-        "Yang telah menyelesaikan kelas Belajar Menguasai Nest.js dalam program Kelas Online CODEPOLITAN.",
-      image: "/img/certif/nestjs.pdf",
-    },
-    {
-      title: "Kelas Belajar Menguasai Vue.js",
-      description:
-        "Yang telah menyelesaikan kelas Belajar Cepat Vue.js dalam program Kelas Online CODEPOLITAN.",
-      image: "/img/certif/vuejs.pdf",
-    },
-    {
-      title: "Mastering Full Stack Development : From Frontend to Backend",
-      image: "/img/certif/udemy.pdf",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-slate-100 p-6 dark:bg-black">
-      <div className="container mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center text-gray-800 mb-8 dark:text-white"
-        >
-          Achievements
-        </motion.h1>
-        <div className="grid grid-cols-1 mobile:grid-cols-2 gap-6">
+    <main className="relative w-full min-h-screen overflow-hidden py-20 lg:py-32">
+      {/* BACKGROUND DECORATIONS */}
+      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/20 blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/20 blur-[120px]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 lg:px-12">
+        <div className="mb-16 text-center lg:text-left">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-bold mb-4"
+          >
+            My <span className="text-gradient">Achievements</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl"
+          >
+            A recognition of my continuous learning journey and professional development in various technologies.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-900 shadow-2xl rounded-lg p-6 text-center hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-300"
+              className="group relative glass p-8 rounded-3xl border border-white/10 hover:border-indigo-500/30 transition-all duration-500 flex flex-col justify-between"
             >
-              <div className="mb-4">
-                {achievement.image.endsWith(".pdf") ? (
-                  <div className="flex flex-col items-center">
-                    <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ repeat: Infinity, duration: 1.5 }}
-                    >
-                      <FaFilePdf size={60} className="text-red-500 mb-2" />
-                    </motion.div>
-                    <a
-                      href={achievement.image}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg flex items-center gap-2 hover:from-blue-600 hover:to-purple-600 transition"
-                    >
-                      <FaExternalLinkAlt />
-                      Lihat Sertifikat
-                    </a>
-                  </div>
-                ) : achievement.image ? (
-                  <Image
-                    width={200}
-                    height={150}
-                    src={achievement.image}
-                    alt={achievement.title}
-                    className="mx-auto rounded-lg shadow"
-                  />
-                ) : (
-                  <div className="flex flex-col items-center">
-                    <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ repeat: Infinity, duration: 1.5 }}
-                    >
-                      <MdEmojiEvents
-                        size={60}
-                        className="text-yellow-500 mb-2"
-                      />
-                    </motion.div>
-                    <p className="text-gray-500">No Image Available</p>
-                  </div>
-                )}
+              {/* DECORATIVE ICON BACKGROUND */}
+              <div className="absolute top-4 right-4 opacity-[0.03] dark:opacity-[0.07] group-hover:opacity-10 transition-opacity">
+                <FaAward size={120} />
               </div>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-white">
-                {achievement.title}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300">
-                {achievement.description}
-              </p>
+
+              <div>
+                <div className="flex items-start justify-between mb-6">
+                  <div className="p-3 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
+                    <FaFilePdf size={28} className="text-red-500" />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 dark:text-slate-500">
+                    {achievement.issuer}
+                  </span>
+                </div>
+
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-indigo-400 transition-colors">
+                  {achievement.title}
+                </h2>
+                
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                  {achievement.description}
+                </p>
+              </div>
+
+              <div className="mt-auto">
+                <a
+                  href={achievement.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold text-sm hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/25 transition-all group/btn"
+                >
+                  <FaExternalLinkAlt className="text-xs transition-transform group-hover/btn:scale-110" />
+                  View Certificate
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
+
 
 export default AchievementPage;

@@ -1,8 +1,7 @@
 import type { Config } from "tailwindcss";
 
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+// @ts-expect-error: tailwindcss internal modules do not have exported types
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 export default {
   content: [
@@ -17,22 +16,20 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-    },
-    screens: {
-      mobile: "640px",
-      // => @media (min-width: 640px) { ... }
-
-      laptop: "1024px",
-      // => @media (min-width: 1024px) { ... }
+      screens: {
+        mobile: "640px",
+        laptop: "1024px",
+      },
     },
   },
   plugins: [addVariablesForColors],
 } satisfies Config;
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function addVariablesForColors({ addBase, theme }: { addBase: (arg: any) => void; theme: (path: string) => any }) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
  

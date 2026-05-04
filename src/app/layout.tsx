@@ -36,7 +36,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <div className="w-full bg-slate-300">
+        <div className="w-full">
           <Footer />
         </div>
       </body>

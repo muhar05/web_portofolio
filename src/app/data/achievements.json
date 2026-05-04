@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Belajar Membuat Aplikasi Flutter untuk Pemula",
+    "description": "Pemula yang ingin memulai kariernya di bidang Flutter Development dengan mengacu pada standar industri. Di akhir kelas, siswa dapat membuat aplikasi Flutter dengan memanfaatkan widget untuk menyusun layout-nya.",
+    "image": "/img/certif/flutter.pdf",
+    "issuer": "Dicoding Indonesia"
+  },
+  {
+    "title": "Memulai Pemrograman dengan Dart",
+    "description": "Kelas ditujukan bagi pemula yang ingin belajar dasar bahasa pemrograman Dart dengan mengacu pada standar industri. Di akhir kelas, siswa dapat membuat program Dart dengan menggunakan IDE IntelliJ IDEA atau IDE Online seperti DartPad.",
+    "image": "/img/certif/dart.pdf",
+    "issuer": "Dicoding Indonesia"
+  },
+  {
+    "title": "Kelas Belajar Menguasai Nest.js",
+    "description": "Telah menyelesaikan kelas Belajar Menguasai Nest.js dalam program Kelas Online CODEPOLITAN.",
+    "image": "/img/certif/nestjs.pdf",
+    "issuer": "Codepolitan"
+  },
+  {
+    "title": "Kelas Belajar Menguasai Vue.js",
+    "description": "Telah menyelesaikan kelas Belajar Cepat Vue.js dalam program Kelas Online CODEPOLITAN.",
+    "image": "/img/certif/vuejs.pdf",
+    "issuer": "Codepolitan"
+  },
+  {
+    "title": "Mastering Full Stack Development : From Frontend to Backend",
+    "description": "Comprehensive course covering end-to-end web development practices, from designing user interfaces to implementing server-side logic.",
+    "image": "/img/certif/udemy.pdf",
+    "issuer": "Udemy"
+  }
+]
