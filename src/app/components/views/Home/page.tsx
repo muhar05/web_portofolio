@@ -141,7 +141,7 @@ const HomePage = () => {
             </Link>
 
             <a 
-              href="/resume.pdf" 
+              href="img/cv_muhar.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-white font-semibold hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-300"
