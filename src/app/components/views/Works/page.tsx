@@ -3,36 +3,18 @@
 import works from "@/app/data/works.json";
 import { BentoGrid } from "@/app/components/fragments/BentoGrids/BentoGrid";
 import { BentoGridItem } from "@/app/components/fragments/BentoGrids/BentoGridItem";
-import { motion } from "framer-motion";
-
 const WorksPage = () => {
   return (
-    <main className="relative w-full min-h-screen overflow-hidden py-20 lg:py-32">
-      {/* BACKGROUND DECORATIONS */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/20 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/20 blur-[120px]" />
-      </div>
-
-      <section className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="mb-16">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
-          >
-            Featured <span className="text-gradient">Projects</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl"
-          >
-            A collection of web and mobile applications I&apos;ve built, 
-            ranging from enterprise solutions to experimental side projects.
-          </motion.p>
+    <main className="w-full bg-[#0c0d0e] min-h-screen py-16 md:py-24 text-[#e4e4e7]">
+      <section className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="border-b border-[rgba(255,255,255,0.06)] pb-10 mb-16">
+          <span className="font-mono text-[10px] uppercase tracking-wider text-[#8e9196]">02 / production log</span>
+          <h1 className="text-3xl md:text-5xl font-light text-[#fafafa] tracking-tight mt-2 lowercase">
+            selected <span className="font-semibold text-white">works</span>
+          </h1>
+          <p className="text-sm text-[#8e9196] leading-relaxed max-w-2xl lowercase mt-4">
+            a structured inventory of web management portals, accounting engines, and cross-platform mobile products built for production environments.
+          </p>
         </div>
 
         <BentoGrid>
@@ -41,31 +23,31 @@ const WorksPage = () => {
               key={work.id}
               title={work.title}
               description={
-                <div className="space-y-4">
-                  <p className="text-slate-600 dark:text-slate-400">
+                <div className="space-y-4 font-mono text-[11px] text-[#8e9196] lowercase">
+                  <p className="leading-relaxed">
                     {work.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] uppercase tracking-wider font-bold text-indigo-400">
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[rgba(255,255,255,0.04)]">
+                    <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] uppercase tracking-wider text-[#fafafa]">
                       {work.role}
                     </span>
                     {work.ongoing && (
-                      <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] uppercase tracking-wider font-bold text-blue-400">
-                        Ongoing
+                      <span className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-[9px] uppercase tracking-wider text-blue-400">
+                        ongoing
                       </span>
                     )}
                     {work.source === "open-source" && (
-                      <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] uppercase tracking-wider font-bold text-emerald-400">
-                        Open Source
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[9px] uppercase tracking-wider text-emerald-400">
+                        open source
                       </span>
                     )}
                   </div>
 
-                  <ul className="space-y-2 pt-2 border-t border-white/5">
+                  <ul className="space-y-1.5 pt-2">
                     {work.impact?.map((item: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <span className="mt-1.5 w-1 h-1 rounded-full bg-indigo-500 shrink-0" />
+                      <li key={idx} className="flex items-start gap-2 text-[10px] text-[#8e9196] lowercase">
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-[#8e9196] shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -83,6 +65,5 @@ const WorksPage = () => {
     </main>
   );
 };
-
 
 export default WorksPage;

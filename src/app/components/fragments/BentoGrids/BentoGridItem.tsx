@@ -18,15 +18,15 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const iconMap: Record<string, JSX.Element> = {
-  SiNextdotjs: <SiNextdotjs className="h-5 w-5" />,
-  SiReact: <SiReact className="h-5 w-5 text-blue-400" />,
-  SiMongodb: <SiMongodb className="h-5 w-5 text-green-500" />,
-  SiDart: <SiDart className="h-5 w-5 text-blue-500" />,
-  SiFlutter: <SiFlutter className="h-5 w-5 text-cyan-400" />,
-  SiLaravel: <SiLaravel className="h-5 w-5 text-red-500" />,
-  SiPhp: <SiPhp className="h-5 w-5 text-indigo-400" />,
-  DiMysql: <DiMysql className="h-5 w-5 text-blue-600" />,
-  SiSqlite: <SiSqlite className="h-5 w-5 text-blue-400" />,
+  SiNextdotjs: <SiNextdotjs className="h-4 w-4" />,
+  SiReact: <SiReact className="h-4 w-4" />,
+  SiMongodb: <SiMongodb className="h-4 w-4" />,
+  SiDart: <SiDart className="h-4 w-4" />,
+  SiFlutter: <SiFlutter className="h-4 w-4" />,
+  SiLaravel: <SiLaravel className="h-4 w-4" />,
+  SiPhp: <SiPhp className="h-4 w-4" />,
+  DiMysql: <DiMysql className="h-4 w-4" />,
+  SiSqlite: <SiSqlite className="h-4 w-4" />,
 };
 
 export const BentoGridItem = ({
@@ -50,9 +50,10 @@ export const BentoGridItem = ({
 }) => {
   return (
     <motion.div
-      whileHover={{ y: -5 }}
+      whileHover={{ y: -3 }}
+      transition={{ duration: 0.2 }}
       className={cn(
-        "group/bento relative overflow-hidden rounded-3xl glass border border-white/10 flex flex-col justify-between transition-all duration-300",
+        "group/bento relative overflow-hidden rounded bg-[#101112] border border-[rgba(255,255,255,0.06)] flex flex-col justify-between transition-all duration-300",
         colSpan,
         rowSpan,
         className
@@ -60,32 +61,31 @@ export const BentoGridItem = ({
     >
       {/* HEADER IMAGE */}
       {header && (
-        <div className="relative w-full h-48 overflow-hidden">
+        <div className="relative w-full h-44 overflow-hidden border-b border-[rgba(255,255,255,0.06)]">
           <Image
             src={header}
             alt="Header image"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover/bento:scale-110"
+            className="w-full h-full object-cover grayscale opacity-60 group-hover/bento:grayscale-0 group-hover/bento:opacity-90 transition-all duration-500"
             width={500}
             height={500}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60" />
         </div>
       )}
 
       <div className="p-6 flex flex-col flex-1">
         {/* ICONS */}
-        <div className="flex flex-row items-center gap-3 mb-4">
+        <div className="flex flex-row items-center gap-2 mb-4">
           {Array.isArray(icons)
             ? icons.map((icon, index) =>
                 typeof icon === "string" ? (
-                  <div key={index} className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover/bento:border-indigo-500/30 transition-colors">
+                  <div key={index} className="text-[#8e9196] group-hover/bento:text-[#fafafa] transition-colors">
                     {iconMap[icon] ?? null}
                   </div>
                 ) : null
               )
             : typeof icons === "string"
             ? (
-              <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+              <div className="text-[#8e9196] group-hover/bento:text-[#fafafa] transition-colors">
                 {iconMap[icons] ?? null}
               </div>
             )
@@ -94,36 +94,26 @@ export const BentoGridItem = ({
 
         {/* TITLE & DESCRIPTION */}
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover/bento:text-indigo-400 transition-colors">
+          <h3 className="text-lg font-medium text-[#fafafa] mb-2 group-hover/bento:text-white transition-colors lowercase">
             {title}
           </h3>
-          <div className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+          <div className="text-xs text-[#8e9196] leading-relaxed mb-4 lowercase">
             {description}
           </div>
         </div>
 
         {/* FOOTER ACTION */}
-        <div className="mt-auto pt-4 flex items-center justify-between">
+        <div className="mt-auto pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
           <Link
             href={link ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-bold text-indigo-500 hover:text-indigo-400 transition-colors group/link"
+            className="font-mono text-xs text-[#fafafa] hover:text-[#8e9196] transition-colors inline-flex items-center gap-1.5"
           >
-            See Project
-            <svg 
-              className="w-4 h-4 transition-transform group-hover/link:translate-x-1" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="ArrowRight" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            see project
           </Link>
         </div>
       </div>
     </motion.div>
   );
 };
-

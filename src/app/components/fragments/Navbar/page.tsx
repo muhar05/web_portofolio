@@ -2,126 +2,117 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import Logo from "../../../../../public/img/logo.png";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import DarkModeToggle from "../../ui/DarkModeToggle";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Close menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
   const navItems = [
-    { name: "About", href: "/about" },
-    { name: "Works", href: "/works" },
-    { name: "Achievement", href: "/achievement" },
+    { name: "about", href: "/about" },
+    { name: "works", href: "/works" },
+    { name: "achievements", href: "/achievement" },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full py-4 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto flex items-center justify-between glass rounded-2xl px-6 py-3 relative">
-        <div className="flex items-center">
-          <Link href="/">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative w-10 h-10"
-            >
-              <Image
-                src={Logo}
-                alt="logo"
-                fill
-                className="object-contain"
-              />
-            </motion.div>
+    <nav className="w-full border-b border-[rgba(255,255,255,0.06)] bg-[#0c0d0e]/80 backdrop-blur-md sticky top-0 z-50 py-4 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
+        {/* LOGO & TITLE */}
+        <div className="flex items-center gap-4">
+          <Link href="/" className="group flex items-center gap-2">
+            <span className="font-mono text-sm font-semibold tracking-tight text-[#fafafa] hover:text-[#8e9196] transition-colors">
+              muhar.f
+            </span>
           </Link>
+          <div className="hidden sm:block h-3 w-px bg-white/10" />
+          <span className="hidden sm:inline font-mono text-[10px] uppercase tracking-wider text-[#8e9196]">
+            Systems & UI Dev
+          </span>
         </div>
 
         {/* DESKTOP NAV */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <li key={item.href} className="relative">
-                <Link
-                  href={item.href}
-                  className={`relative z-10 text-sm font-medium transition-colors duration-300 ${
-                    isActive
-                      ? "text-indigo-500 dark:text-white"
-                      : "text-slate-600 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-white"
-                  }`}
-                >
-                  {item.name}
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-500 rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`font-mono text-xs tracking-wider transition-colors duration-200 lowercase ${
+                      isActive
+                        ? "text-[#fafafa] font-medium"
+                        : "text-[#8e9196] hover:text-[#fafafa]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
 
-        <div className="flex items-center gap-3">
-          <DarkModeToggle />
-          <Link href="/link" className="hidden sm:block">
-            <button className="px-5 py-2 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition-all">
-              Contact
-            </button>
-          </Link>
-          
-          {/* MOBILE MENU TOGGLE */}
-          <button 
-            className="md:hidden p-2 text-slate-600 dark:text-slate-300"
-            onClick={() => setIsOpen(!isOpen)}
+          <div className="h-4 w-px bg-white/10" />
+
+          <Link
+            href="/link"
+            className="font-mono text-xs tracking-wider text-[#fafafa] hover:text-[#8e9196] border border-[rgba(255,255,255,0.15)] hover:border-[#fafafa] px-3.5 py-1.5 rounded transition-all duration-300"
           >
-            {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
-          </button>
+            connect
+          </Link>
         </div>
 
-        {/* MOBILE NAV OVERLAY */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="absolute top-[110%] left-0 w-full glass rounded-3xl p-6 border border-white/10 md:hidden shadow-2xl flex flex-col gap-4 z-40"
-            >
+        {/* MOBILE MENU TOGGLE */}
+        <div className="flex items-center gap-4 md:hidden">
+          <Link
+            href="/link"
+            className="font-mono text-[11px] tracking-wider text-[#fafafa] border border-[rgba(255,255,255,0.15)] px-3 py-1 rounded"
+          >
+            connect
+          </Link>
+          <button
+            className="p-1 text-[#8e9196] hover:text-[#fafafa] transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <HiX size={20} /> : <HiMenuAlt3 size={20} />}
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE NAV OVERLAY */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.15 }}
+            className="absolute top-full left-0 w-full bg-[#0c0d0e] border-b border-[rgba(255,255,255,0.06)] p-6 md:hidden shadow-2xl flex flex-col gap-4 z-40"
+          >
+            <div className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-lg font-semibold p-2 transition-colors ${
-                    pathname === item.href ? "text-indigo-500" : "text-slate-600 dark:text-slate-300"
+                  className={`font-mono text-sm tracking-wider py-2 transition-colors lowercase ${
+                    pathname === item.href ? "text-[#fafafa] font-medium" : "text-[#8e9196]"
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <hr className="border-white/10" />
-              <Link href="/link">
-                <button className="w-full py-4 rounded-2xl bg-indigo-600 text-white font-bold">
-                  Get In Touch
-                </button>
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
 
 export default Navbar;
-

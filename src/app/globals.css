@@ -6,28 +6,42 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
+    --border: 240 5.9% 90%;
+    --accent-muted: 215 15% 40%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 220 15% 5%;
+    --foreground: 210 20% 98%;
+    --border: 220 10% 12%;
+    --accent-muted: 215 10% 60%;
   }
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-xl;
+  .border-muted {
+    border-color: rgba(255, 255, 255, 0.07);
   }
   
-  .glass-hover {
-    @apply hover:bg-white/20 dark:hover:bg-white/5 transition-all duration-300;
+  .mono-meta {
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: #8e9196;
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+  .blueprint-grid {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }
 
 body {
-  @apply bg-white dark:bg-[#050505] text-slate-900 dark:text-slate-100 transition-colors duration-300;
+  background-color: #0c0d0e;
+  color: #e4e4e7;
+  font-family: var(--font-geist-sans), -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
 }

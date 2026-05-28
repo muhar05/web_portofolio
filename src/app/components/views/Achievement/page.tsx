@@ -1,81 +1,60 @@
 "use client";
 
 import achievements from "@/app/data/achievements.json";
-import { FaFilePdf, FaExternalLinkAlt, FaAward } from "react-icons/fa";
+import { FaFilePdf, FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const AchievementPage = () => {
   return (
-    <main className="relative w-full min-h-screen overflow-hidden py-20 lg:py-32">
-      {/* BACKGROUND DECORATIONS */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/20 blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/20 blur-[120px]" />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 lg:px-12">
-        <div className="mb-16 text-center lg:text-left">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
-          >
-            My <span className="text-gradient">Achievements</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl"
-          >
-            A recognition of my continuous learning journey and professional development in various technologies.
-          </motion.p>
+    <main className="w-full bg-[#0c0d0e] min-h-screen py-16 md:py-24 text-[#e4e4e7]">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="border-b border-[rgba(255,255,255,0.06)] pb-10 mb-16">
+          <span className="font-mono text-[10px] uppercase tracking-wider text-[#8e9196]">03 / continuous integration</span>
+          <h1 className="text-3xl md:text-5xl font-light text-[#fafafa] tracking-tight mt-2 lowercase">
+            technical <span className="font-semibold text-white">achievements</span>
+          </h1>
+          <p className="text-sm text-[#8e9196] leading-relaxed max-w-2xl lowercase mt-4">
+            recognized continuous learning, standard-aligned course completions, and certifications across flutter development, systems engineering, and database logic.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative glass p-8 rounded-3xl border border-white/10 hover:border-indigo-500/30 transition-all duration-500 flex flex-col justify-between"
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="group border border-[rgba(255,255,255,0.06)] bg-[#101112] hover:border-[rgba(255,255,255,0.15)] transition-all duration-300 rounded p-6 flex flex-col justify-between"
             >
-              {/* DECORATIVE ICON BACKGROUND */}
-              <div className="absolute top-4 right-4 opacity-[0.03] dark:opacity-[0.07] group-hover:opacity-10 transition-opacity">
-                <FaAward size={120} />
-              </div>
-
               <div>
-                <div className="flex items-start justify-between mb-6">
-                  <div className="p-3 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
-                    <FaFilePdf size={28} className="text-red-500" />
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-[#8e9196]">
+                    <FaFilePdf size={20} />
                   </div>
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 dark:text-slate-500">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#8e9196]">
                     {achievement.issuer}
                   </span>
                 </div>
 
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-indigo-400 transition-colors">
+                <h2 className="text-lg font-medium text-[#fafafa] mb-2 group-hover:text-white transition-colors lowercase">
                   {achievement.title}
                 </h2>
                 
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                <p className="text-xs text-[#8e9196] leading-relaxed mb-6 lowercase">
                   {achievement.description}
                 </p>
               </div>
 
-              <div className="mt-auto">
+              <div className="pt-4 border-t border-[rgba(255,255,255,0.04)]">
                 <a
                   href={achievement.image}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold text-sm hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/25 transition-all group/btn"
+                  className="font-mono text-xs text-[#fafafa] hover:text-[#8e9196] transition-colors inline-flex items-center gap-1.5"
                 >
-                  <FaExternalLinkAlt className="text-xs transition-transform group-hover/btn:scale-110" />
-                  View Certificate
+                  view certificate <FaExternalLinkAlt size={10} />
                 </a>
               </div>
             </motion.div>
@@ -85,6 +64,5 @@ const AchievementPage = () => {
     </main>
   );
 };
-
 
 export default AchievementPage;

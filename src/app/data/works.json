@@ -52,7 +52,7 @@
   {
     "id": 4,
     "slug": "ecarrgo-platform",
-    "title": "ecarrgo Web & Mobile Platform",
+    "title": "Ecarrgo Web & Mobile Platform",
     "description": "A logistics platform for web and mobile applications. My role focused on frontend development with real-time chat, live tracking, and real-time auction features.",
     "role": "Frontend Developer",
     "impact": [
@@ -97,5 +97,37 @@
     "icon": ["SiLaravel", "SiPhp", "DiMysql"],
     "ongoing": false,
     "source": "closed-source"
+  },
+  {
+    "id": 7,
+    "slug": "internal-erp-system",
+    "title": "Internal ERP System",
+    "description": "An ongoing internal ERP platform built to support operational workflows such as purchasing, inventory tracking, reporting, and internal data management. Focused on building practical and scalable interfaces for daily company operations.",
+    "role": "Fullstack Developer",
+    "impact": [
+    "Improved internal workflow efficiency through centralized system",
+    "Built responsive dashboard and operational interfaces",
+    "Helped simplify reporting and purchasing processes"
+    ],
+    "header": "/img/port7.png",
+    "icon": ["SiNextdotjs", "SiTypescript", "SiLaravel"],
+    "ongoing": true,
+    "source": "private-internal"
+  },
+  {
+    "id": 8,
+    "slug": "ecobank026",
+    "title": "EcoBank026 • RT/RW Cash & Waste Bank System",
+    "description": "A community-based financial and waste bank management platform designed for RT/RW environments. Features include citizen contribution tracking, financial reporting, waste savings management, and role-based administration dashboards.",
+    "role": "Fullstack Developer",
+    "impact": [
+    "Digitized RT/RW financial reporting process",
+    "Built integrated waste bank and citizen contribution management",
+    "Designed role-based dashboards for admins, treasurers, and residents"
+    ],
+    "header": "/img/port8.png",
+    "icon": ["SiNextdotjs", "SiTypescript", "DiMysql"],
+    "ongoing": true,
+    "source": "private-project"
   }
 ]
