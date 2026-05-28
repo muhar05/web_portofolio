@@ -1,23 +1,6 @@
 [
   {
     "id": 1,
-    "slug": "teh-solo",
-    "title": "Teh Solo Management System",
-    "description": "A web application built as a solo fullstack project for a personal tea business. Features include income and expense tracking, sales management, and simple financial reporting.",
-    "role": "Fullstack Developer",
-    "impact": [
-      "Helped track daily income and expenses more accurately",
-      "Reduced manual bookkeeping process",
-      "Improved business monitoring through simple dashboard"
-    ],
-    "header": "/img/port1.png",
-    "icon": ["SiNextdotjs", "SiReact", "SiMongodb"],
-    "ongoing": false,
-    "source": "closed-source",
-    "domain": "https://tehsoloms.vercel.app"
-  },
-  {
-    "id": 2,
     "slug": "pharmacy-management",
     "title": "Pharmacy Management System",
     "description": "A campus project to manage pharmacy data, including prescription drugs with detailed information, stock management, and transaction records.",
@@ -34,7 +17,7 @@
     "github": "https://github.com/muhar05/pharmacy_management.git"
   },
   {
-    "id": 3,
+    "id": 2,
     "slug": "coffee-shop-management",
     "title": "Coffee Shop Management App",
     "description": "A management application similar to Teh Solo, focused on sales tracking, expense management, and daily transaction monitoring.",
@@ -50,7 +33,7 @@
     "source": "closed-source"
   },
   {
-    "id": 4,
+    "id": 3,
     "slug": "ecarrgo-platform",
     "title": "Ecarrgo Web & Mobile Platform",
     "description": "A logistics platform for web and mobile applications. My role focused on frontend development with real-time chat, live tracking, and real-time auction features.",
@@ -66,7 +49,7 @@
     "source": "closed-source"
   },
   {
-    "id": 5,
+    "id": 4,
     "slug": "nsa-performance-revamp",
     "title": "NSA Performance Website Revamp",
     "description": "Revamped the UI of nsaperformance.id and developed a flash sales feature using Laravel Blade to improve user experience and promotional flow.",
@@ -83,7 +66,7 @@
     "source": "closed-source"
   },
   {
-    "id": 6,
+    "id": 5,
     "slug": "ppdb-online-system",
     "title": "PPDB Online School System",
     "description": "Developed an online student admission system integrated with a WordPress landing page. The system allows online registration, data validation, and admin management dashboard.",
@@ -99,7 +82,7 @@
     "source": "closed-source"
   },
   {
-    "id": 7,
+    "id": 6,
     "slug": "internal-erp-system",
     "title": "Internal ERP System",
     "description": "An ongoing internal ERP platform built to support operational workflows such as purchasing, inventory tracking, reporting, and internal data management. Focused on building practical and scalable interfaces for daily company operations.",
@@ -110,12 +93,12 @@
     "Helped simplify reporting and purchasing processes"
     ],
     "header": "/img/port7.png",
-    "icon": ["SiNextdotjs", "SiTypescript", "SiLaravel"],
+    "icon": ["SiNextdotjs", "SiTypescript", "SiTailwindcss", "DiPostgresql"],
     "ongoing": true,
     "source": "private-internal"
   },
   {
-    "id": 8,
+    "id": 7,
     "slug": "ecobank026",
     "title": "EcoBank026 • RT/RW Cash & Waste Bank System",
     "description": "A community-based financial and waste bank management platform designed for RT/RW environments. Features include citizen contribution tracking, financial reporting, waste savings management, and role-based administration dashboards.",
@@ -126,7 +109,7 @@
     "Designed role-based dashboards for admins, treasurers, and residents"
     ],
     "header": "/img/port8.png",
-    "icon": ["SiNextdotjs", "SiTypescript", "DiMysql"],
+    "icon": ["SiLaravel", "SiPhp", "DiMysql"],
     "ongoing": true,
     "source": "private-project"
   }
