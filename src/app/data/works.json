@@ -1,116 +1,157 @@
 [
-  {
-    "id": 1,
-    "slug": "pharmacy-management",
-    "title": "Pharmacy Management System",
-    "description": "A campus project to manage pharmacy data, including prescription drugs with detailed information, stock management, and transaction records.",
-    "role": "Fullstack Developer",
-    "impact": [
-      "Centralized medicine data management",
-      "Improved stock monitoring accuracy",
-      "Simplified transaction recording process"
-    ],
-    "header": "/img/port2.png",
-    "icon": ["SiLaravel", "DiMysql", "SiPhp"],
-    "ongoing": false,
-    "source": "open-source",
-    "github": "https://github.com/muhar05/pharmacy_management.git"
-  },
-  {
-    "id": 2,
-    "slug": "coffee-shop-management",
-    "title": "Coffee Shop Management App",
-    "description": "A management application similar to Teh Solo, focused on sales tracking, expense management, and daily transaction monitoring.",
-    "role": "Fullstack Developer",
-    "impact": [
-      "Helped record daily sales digitally",
-      "Improved transaction tracking efficiency",
-      "Reduced manual reporting"
-    ],
-    "header": "/img/port3.png",
-    "icon": ["SiFlutter", "SiDart", "SiSqlite"],
-    "ongoing": false,
-    "source": "closed-source"
-  },
-  {
-    "id": 3,
-    "slug": "ecarrgo-platform",
-    "title": "Ecarrgo Web & Mobile Platform",
-    "description": "A logistics platform for web and mobile applications. My role focused on frontend development with real-time chat, live tracking, and real-time auction features.",
-    "role": "Frontend Developer",
-    "impact": [
-      "Implemented real-time chat for faster communication",
-      "Built live tracking interface for shipment monitoring",
-      "Developed real-time auction UI experience"
-    ],
-    "header": "/img/port4.png",
-    "icon": ["SiReact", "SiFlutter"],
-    "ongoing": false,
-    "source": "closed-source"
-  },
-  {
-    "id": 4,
-    "slug": "nsa-performance-revamp",
-    "title": "NSA Performance Website Revamp",
-    "description": "Revamped the UI of nsaperformance.id and developed a flash sales feature using Laravel Blade to improve user experience and promotional flow.",
-    "role": "Frontend Developer",
-    "impact": [
-      "Redesigned UI for better navigation and visual clarity",
-      "Built flash sales feature with countdown timer",
-      "Improved responsive layout across devices"
-    ],
-    "domain": "https://nsaperformance.id/",
-    "header": "/img/port5.png",
-    "icon": ["SiLaravel", "SiPhp"],
-    "ongoing": false,
-    "source": "closed-source"
-  },
-  {
-    "id": 5,
-    "slug": "ppdb-online-system",
-    "title": "PPDB Online School System",
-    "description": "Developed an online student admission system integrated with a WordPress landing page. The system allows online registration, data validation, and admin management dashboard.",
-    "role": "Fullstack Developer",
-    "impact": [
-      "Built online registration form with validation",
-      "Integrated Laravel backend with WordPress landing page",
-      "Created admin dashboard to manage applicants"
-    ],
-    "header": "/img/port6.png",
-    "icon": ["SiLaravel", "SiPhp", "DiMysql"],
-    "ongoing": false,
-    "source": "closed-source"
-  },
-  {
-    "id": 6,
-    "slug": "internal-erp-system",
-    "title": "Internal ERP System",
-    "description": "An ongoing internal ERP platform built to support operational workflows such as purchasing, inventory tracking, reporting, and internal data management. Focused on building practical and scalable interfaces for daily company operations.",
-    "role": "Fullstack Developer",
-    "impact": [
-    "Improved internal workflow efficiency through centralized system",
-    "Built responsive dashboard and operational interfaces",
-    "Helped simplify reporting and purchasing processes"
-    ],
-    "header": "/img/port7.png",
-    "icon": ["SiNextdotjs", "SiTypescript", "SiTailwindcss", "DiPostgresql"],
-    "ongoing": true,
-    "source": "private-internal"
-  },
-  {
-    "id": 7,
-    "slug": "ecobank026",
-    "title": "EcoBank026 • RT/RW Cash & Waste Bank System",
-    "description": "A community-based financial and waste bank management platform designed for RT/RW environments. Features include citizen contribution tracking, financial reporting, waste savings management, and role-based administration dashboards.",
-    "role": "Fullstack Developer",
-    "impact": [
-    "Digitized RT/RW financial reporting process",
-    "Built integrated waste bank and citizen contribution management",
-    "Designed role-based dashboards for admins, treasurers, and residents"
-    ],
-    "header": "/img/port8.png",
-    "icon": ["SiLaravel", "SiPhp", "DiMysql"],
-    "ongoing": true,
-    "source": "private-project"
-  }
+{
+"id": 1,
+"slug": "teh-solo",
+"title": "Teh Solo Management System",
+"description": "A production-ready management system built for a personal tea business. The system helps manage daily sales, income, expenses, and simple financial reports.",
+"role": "Fullstack Developer",
+"impact": [
+"Helped track daily sales and expenses more accurately",
+"Reduced manual bookkeeping process",
+"Improved business monitoring through a simple dashboard"
+],
+"header": "/img/port1.png",
+"icon": ["SiNextdotjs", "SiReact", "SiMongodb"],
+"ongoing": false,
+"source": "closed-source",
+"sector": "production",
+"status": "deployed",
+"tags": ["real business", "finance tracking", "dashboard"],
+"domain": "https://tehsoloms.vercel.app"
+},
+{
+"id": 2,
+"slug": "ecarrgo-platform",
+"title": "Ecarrgo Web & Mobile Platform",
+"description": "A logistics platform for web and mobile applications. My role focused on frontend development for real-time chat, live tracking, and real-time auction features.",
+"role": "Frontend Developer",
+"impact": [
+"Implemented real-time chat for faster communication",
+"Built live tracking interface for shipment monitoring",
+"Developed real-time auction UI experience"
+],
+"header": "/img/port4.png",
+"icon": ["SiReact", "SiFlutter"],
+"ongoing": false,
+"source": "closed-source",
+"sector": "production",
+"status": "production",
+"tags": ["logistics", "real-time", "web & mobile"]
+},
+{
+"id": 3,
+"slug": "nsa-performance-revamp",
+"title": "NSA Performance Website Revamp",
+"description": "Revamped the UI of nsaperformance.id and developed a flash sales feature using Laravel Blade to improve user experience and promotional flow.",
+"role": "Frontend Developer",
+"impact": [
+"Redesigned UI for better navigation and visual clarity",
+"Built flash sales feature with countdown timer",
+"Improved responsive layout across devices"
+],
+"domain": "https://nsaperformance.id/",
+"header": "/img/port5.png",
+"icon": ["SiLaravel", "SiPhp"],
+"ongoing": false,
+"source": "closed-source",
+"sector": "production",
+"status": "live",
+"tags": ["company website", "flash sale", "responsive UI"]
+},
+{
+"id": 4,
+"slug": "ppdb-online-system",
+"title": "PPDB Online School System",
+"description": "An online student admission system integrated with a WordPress landing page. The system supports online registration, data validation, and applicant management through an admin dashboard.",
+"role": "Fullstack Developer",
+"impact": [
+"Built online registration form with validation",
+"Integrated Laravel backend with WordPress landing page",
+"Created admin dashboard to manage applicants"
+],
+"header": "/img/port6.png",
+"icon": ["SiLaravel", "SiPhp", "DiMysql"],
+"ongoing": false,
+"source": "closed-source",
+"sector": "production",
+"status": "completed",
+"tags": ["school system", "registration", "admin dashboard", "ready to deploy"]
+},
+{
+"id": 5,
+"slug": "internal-erp-system",
+"title": "Internal ERP System",
+"description": "An ongoing internal ERP platform built to support operational workflows such as purchasing, inventory tracking, reporting, and internal data management. Focused on practical interfaces for daily company operations.",
+"role": "Fullstack Developer",
+"impact": [
+"Improved internal workflow efficiency through a centralized system",
+"Built responsive dashboards and operational interfaces",
+"Helped simplify reporting and purchasing processes"
+],
+"header": "/img/port7.png",
+"icon": ["SiNextdotjs", "SiTypescript", "SiTailwindcss", "DiPostgresql"],
+"ongoing": true,
+"source": "private-internal",
+"sector": "private",
+"status": "in-progress",
+"tags": ["erp", "internal tools", "operations"]
+},
+{
+"id": 6,
+"slug": "ecobank026",
+"title": "EcoBank026 • RT/RW Cash & Waste Bank System",
+"description": "A community-based financial and waste bank management platform designed for RT/RW environments. Features include citizen contribution tracking, financial reporting, waste savings management, and role-based administration dashboards.",
+"role": "Fullstack Developer",
+"impact": [
+"Digitized RT/RW financial reporting process",
+"Built integrated waste bank and citizen contribution management",
+"Designed role-based dashboards for admins, treasurers, and residents"
+],
+"header": "/img/port8.png",
+"icon": ["SiLaravel", "SiPhp", "DiMysql"],
+"ongoing": true,
+"source": "private-project",
+"sector": "private",
+"status": "in-progress",
+"tags": ["community system", "cash report", "waste bank"]
+},
+{
+"id": 7,
+"slug": "pharmacy-management",
+"title": "Pharmacy Management System",
+"description": "A campus project to manage pharmacy data, including prescription drugs with detailed information, stock management, and transaction records.",
+"role": "Fullstack Developer",
+"impact": [
+"Centralized medicine data management",
+"Improved stock monitoring accuracy",
+"Simplified transaction recording process"
+],
+"header": "/img/port2.png",
+"icon": ["SiLaravel", "DiMysql", "SiPhp"],
+"ongoing": false,
+"source": "open-source",
+"sector": "experiment",
+"status": "campus-project",
+"tags": ["campus project", "inventory", "transaction records"],
+"github": "https://github.com/muhar05/pharmacy_management.git"
+},
+{
+"id": 8,
+"slug": "coffee-shop-management",
+"title": "Coffee Shop Management App",
+"description": "A learning-driven mobile management application focused on sales tracking, expense management, and daily transaction monitoring.",
+"role": "Fullstack Developer",
+"impact": [
+"Helped record daily sales digitally",
+"Improved transaction tracking efficiency",
+"Reduced manual reporting"
+],
+"header": "/img/port3.png",
+"icon": ["SiFlutter", "SiDart", "SiSqlite"],
+"ongoing": false,
+"source": "closed-source",
+"sector": "experiment",
+"status": "learning-project",
+"tags": ["mobile app", "sales tracking", "sqlite"]
+}
 ]

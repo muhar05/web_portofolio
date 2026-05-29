@@ -61,14 +61,15 @@ const HomePage = () => {
             variants={itemVariants}
             className="text-4xl md:text-6xl font-light tracking-tight text-[#fafafa] mb-6 lowercase leading-tight"
           >
-            i build reliable <span className="font-semibold text-white">web systems</span> & <span className="italic text-[#8e9196]">tactile interfaces</span>.
+            i&apos;m muhar. <br />
+            <span className="font-semibold text-white">creating systems</span> and <span className="italic text-[#8e9196]">random chaos</span>.
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="text-base md:text-lg text-[#8e9196] leading-relaxed max-w-2xl lowercase mb-10"
           >
-            i&apos;m muhar, a software engineer based in solo, indonesia. i write clean code for internal erp tools, accounting platforms, and high-performance mobile apps. quiet systems, robust databases, and zero buzzwords.
+            building practical things on the internet and quiet interfaces for real workflows. currently building internal enterprise systems and side experiments in banten, indonesia.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4">

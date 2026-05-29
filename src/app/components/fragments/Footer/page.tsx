@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
 
           <p className="font-mono text-[10px] text-[#8e9196] tracking-wider md:text-right">
-            © {currentYear} muhar ferdiansyah.
+            © {currentYear} muhar ferdiansyah — creating systems and random chaos.
           </p>
         </div>
       </div>
