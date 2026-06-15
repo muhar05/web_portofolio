@@ -214,12 +214,24 @@ const WorksPage = () => {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {privateSectors.map((work) => (
+              {privateSectors.map((work, idx) => (
                 <div 
                   key={work.id}
                   className="group border border-[rgba(255,255,255,0.06)] bg-[#0e0f10] hover:border-[rgba(255,255,255,0.12)] transition-all duration-300 rounded p-6 flex flex-col justify-between"
                 >
                   <div>
+                                          {work.header && (
+                        <div className="relative w-full h-48 md:h-64 overflow-hidden rounded mb-6 border border-[rgba(255,255,255,0.06)]">
+                          <Image
+                            src={work.header}
+                            alt={work.title}
+                            className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-500"
+                            width={800}
+                            height={500}
+                            priority={idx === 0}
+                          />
+                        </div>
+                      )}
                     <div className="flex items-center justify-between mb-4 border-b border-[rgba(255,255,255,0.03)] pb-3">
                       <span className="font-mono text-[9px] uppercase tracking-wider text-[#8e9196] flex items-center gap-1.5">
                         <FaLock size={8} className="text-[#8e9196]" /> private infrastructure
