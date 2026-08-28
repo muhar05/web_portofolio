@@ -1,11 +1,5 @@
-import LinkPage from "../components/views/Link/page"
+import LinkSection from "@/components/views/Link/LinkSection";
 
-const Link = () => {
-    return (
-        <>
-        <LinkPage />
-        </>
-    )
-}
+const Link = () => <LinkSection />;
 
 export default Link;

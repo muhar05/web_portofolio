@@ -1,9 +1,5 @@
-import AboutPage from "../components/views/About/page"
+import AboutSection from "@/components/views/About/AboutSection";
 
-const About = () => {
-    return (
-        <AboutPage />
-    )
-}
+const About = () => <AboutSection />;
 
 export default About;

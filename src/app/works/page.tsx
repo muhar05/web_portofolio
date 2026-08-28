@@ -1,11 +1,5 @@
-import WorksPage from "../components/views/Works/page"
+import WorksSection from "@/components/views/Works/WorksSection";
 
-const Works = () => {
-    return (
-        <>
-        <WorksPage />
-        </>
-    )
-}
+const Works = () => <WorksSection />;
 
 export default Works;

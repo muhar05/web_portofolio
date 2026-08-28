@@ -1,11 +1,5 @@
-import AchievementPage from "../components/views/Achievement/page"
+import AchievementSection from "@/components/views/Achievement/AchievementSection";
 
-const Achievement = () => {
-    return (
-        <>
-            <AchievementPage />
-        </>
-    )
-}
+const Achievement = () => <AchievementSection />;
 
 export default Achievement;
