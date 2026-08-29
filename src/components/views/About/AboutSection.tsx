@@ -47,13 +47,10 @@ const AboutPage = () => {
         {/* STORY */}
         <div className="space-y-6 text-sm md:text-base text-[#8e9196] leading-relaxed mb-16 lowercase">
           <p>
-            i&apos;m a software engineer specializing in developing robust web solutions, internal management portals (ERP), and highly structured cross-platform mobile apps. i operate at the intersection of logical backend database engineering and intuitive UI/UX design.
+            i&apos;m a fullstack developer specializing in developing robust web solutions, internal management portals (ERP), and highly structured cross-platform mobile apps. i operate at the intersection of logical backend database engineering and intuitive UI/UX design.
           </p>
           <p>
             my work typically involves taking complex, fragmented manual workflows (like accounting sheets or pharmacy drug prescriptions) and transforming them into streamlined database systems using Next.js, Laravel, Node.js, and Flutter.
-          </p>
-          <p>
-            when i&apos;m not writing sql queries or designing clean grid alignments, i spend my time sketching, exploring internet culture history, or analyzing mechanical keyboard tactile configurations.
           </p>
         </div>
 

@@ -231,6 +231,12 @@ const WorkCard = ({ work, priority = false }: WorkCardProps) => {
         </Link>
         <p className="text-xs text-[#8e9196] leading-relaxed mb-6 lowercase">{work.description}</p>
 
+        {work.qualifier && (
+          <p className="text-[10px] font-mono uppercase tracking-wider text-[#8e9196] mb-6">
+            {work.qualifier}
+          </p>
+        )}
+
         {/* SECTOR-SPECIFIC BODY */}
         {sector === "production" && (
           <>

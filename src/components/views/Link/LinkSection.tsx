@@ -24,7 +24,7 @@ const LinkPage = () => {
       >
         <div className="flex flex-col items-center mb-8 border-b border-[var(--border-light)] pb-6">
           <h1 className="text-xl font-medium text-[var(--text-primary)] mb-1 lowercase">muhar ferdiansyah</h1>
-          <p className="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-wider">systems & ui developer</p>
+          <p className="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-wider">fullstack developer</p>
         </div>
 
         <div className="space-y-3">

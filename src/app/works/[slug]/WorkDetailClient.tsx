@@ -120,7 +120,8 @@ export default function WorkDetailClient({ work }: Props) {
               <Image
                 src={work.header}
                 alt={work.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
                 loading="lazy"
               />
             </div>

@@ -5,7 +5,7 @@ import type { Work } from "@/types/works";
 import WorkDetailClient from "./WorkDetailClient";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -13,7 +13,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const work = works.find((w) => w.slug === params.slug);
+  const { slug } = await params;
+  const work = works.find((w) => w.slug === slug);
   if (!work) return {};
   return {
     title: `${work.title} — muhar ferdiansyah`,
@@ -21,8 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function WorkDetailPage({ params }: Props) {
-  const work = works.find((w) => w.slug === params.slug);
+export default async function WorkDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const work = works.find((w) => w.slug === slug);
   if (!work) return notFound();
   return <WorkDetailClient work={work as Work} />;
 }

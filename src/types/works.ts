@@ -26,4 +26,5 @@ export interface Work {
   limitations?: string;
   ownership?: string;
   projectType?: string;
+  qualifier?: string;
 }

@@ -3,30 +3,95 @@
     "id": 1,
     "slug": "ecarrgo-platform",
     "title": "Ecarrgo Web & Mobile Platform",
-    "description": "A logistics platform for web and mobile applications. My role focused on frontend development for real-time chat, live tracking, and real-time auction features.",
+    "description": "Cross-platform Flutter logistics application that connects customers with shipping vendors through a reverse-auction shipment workflow, from posting to delivery tracking.",
     "role": "Frontend Developer",
     "impact": [
-      "Implemented real-time chat for faster communication",
-      "Built live tracking interface for shipment monitoring",
-      "Developed real-time auction UI experience"
+      "Delivered cross-platform customer and vendor Flutter clients for shipment workflows",
+      "Implemented the reverse-auction flow from shipment posting through vendor selection",
+      "Added shipment tracking, payment-proof, and delivery-status screens"
     ],
     "header": "/img/port4.png",
-    "icon": ["SiReact", "SiFlutter"],
+    "icon": ["SiFlutter", "SiDart"],
     "ongoing": false,
     "source": "closed-source",
     "sector": "production",
-    "status": "production",
-    "tags": ["logistics", "real-time", "web & mobile"],
-    "context": "",
-    "problem": "",
-    "workflow": "",
-    "engineeringHighlights": [],
-    "edgeCases": [],
-    "technicalDecisions": [],
-    "outcome": "",
-    "limitations": "",
-    "ownership": "",
-    "projectType": ""
+    "status": "shipped",
+    "tags": ["logistics", "reverse auction", "delivery tracking"],
+    "context": "A cross-platform Flutter logistics client for customer and vendor shipment workflows, built around a reverse-auction model where vendors compete to fulfill customer shipments.",
+    "problem": "Connecting customers with shipping vendors through competitive bidding and managing the shipment workflow from post through delivery without a shared real-time system.",
+    "workflow": "Post shipment → vendors bid → select winner → payment proof → en-route → delivered",
+    "engineeringHighlights": [
+      {
+        "title": "Cross-platform Flutter client",
+        "description": "One Flutter codebase supports web and mobile clients with separate customer and vendor navigation shells."
+      },
+      {
+        "title": "Reverse-auction shipment workflow",
+        "description": "Implemented the customer flow from shipment creation and auction settings through vendor selection, payment proof, and shipment tracking."
+      },
+      {
+        "title": "Layered feature architecture",
+        "description": "Organized the client into data, domain, and presentation layers with dedicated API datasources and models."
+      },
+      {
+        "title": "Provider-based state management",
+        "description": "Used ChangeNotifier providers to manage multi-step form state, shipment progress, authentication, locale, and other application state."
+      },
+      {
+        "title": "Business validation and resilient UI states",
+        "description": "Implemented form validation and business guards alongside loading, error, empty, and retry states across major screens."
+      }
+    ],
+    "edgeCases": [
+      {
+        "title": "Expired auction",
+        "status": "handled",
+        "description": "Payment action is disabled when the auction has expired."
+      },
+      {
+        "title": "Tracking API failure",
+        "status": "handled",
+        "description": "Tracking request failures surface a user-visible error message."
+      },
+      {
+        "title": "Empty activity or history",
+        "status": "handled",
+        "description": "Dedicated empty states are shown when activity or shipment history has no data."
+      },
+      {
+        "title": "Missing authentication token",
+        "status": "handled",
+        "description": "Protected API calls reject requests when the authentication token is unavailable."
+      },
+      {
+        "title": "Invalid auction duration",
+        "status": "handled",
+        "description": "Auction duration cannot exceed the shipment delivery time."
+      }
+    ],
+    "technicalDecisions": [
+      {
+        "decision": "Provider-based centralized state",
+        "reason": "Provides shared application state for authentication, locale, shipment progress, and multi-step form state."
+      },
+      {
+        "decision": "Secure token storage",
+        "reason": "Access tokens are persisted through flutter_secure_storage instead of regular application storage."
+      },
+      {
+        "decision": "REST snapshot + FCM push",
+        "reason": "The implementation uses REST requests for data updates and FCM for server-to-device push notifications without WebSocket infrastructure."
+      },
+      {
+        "decision": "Separate customer and vendor navigation shells",
+        "reason": "Different navigation experiences are provided based on the application user role."
+      }
+    ],
+    "outcome": "Delivered the cross-platform Flutter client experience for shipment creation, reverse auction, winner selection, payment proof, tracking status, and delivery flow.",
+    "limitations": "No WebSocket-based real-time chat. Tracking uses REST status updates and static map rather than live GPS streaming. Vendor bid placement UI is not implemented in this repository. Meaningful automated tests are not present beyond the default Flutter template test.",
+    "ownership": "Frontend development focused on the Flutter client, including screens, navigation, state management, API datasources, validation, map UI, FCM wiring, and payment-proof upload.",
+    "projectType": "Cross-platform Web & Mobile Application",
+    "qualifier": "Cross-platform logistics application"
   },
   {
     "id": 2,
@@ -91,12 +156,13 @@
     "id": 4,
     "slug": "internal-erp-system",
     "title": "Internal ERP System",
-    "description": "An ongoing internal ERP platform built to support operational workflows such as purchasing, inventory tracking, reporting, and internal data management. Focused on practical interfaces for daily company operations.",
+    "description": "End-to-end internal ERP platform that connects Sales, Purchasing, Warehouse, Inventory, and Delivery into a single state-driven operational system.",
+    "qualifier": "State-driven operational workflow",
     "role": "Fullstack Developer",
     "impact": [
-      "Improved internal workflow efficiency through a centralized system",
-      "Built responsive dashboards and operational interfaces",
-      "Helped simplify reporting and purchasing processes"
+      "Connected Sales, Purchasing, Warehouse, and Delivery into one tracked operational workflow",
+      "Built a state-driven document lifecycle with role-based access across 9 departments",
+      "Enforced inventory consistency with atomic transactions and concurrency control"
     ],
     "header": "/img/port7.png",
     "icon": ["SiNextdotjs", "SiTypescript", "SiTailwindcss", "DiPostgresql"],
@@ -105,94 +171,74 @@
     "sector": "private",
     "status": "in-progress",
     "tags": ["erp", "internal tools", "operations"],
-    "context": "Sistem ini digunakan untuk menyatukan workflow operasional perusahaan agar departemen yang sebelumnya bekerja terpisah dapat berkoordinasi dalam satu platform.",
-    "problem": "Workflow operasional terfragmentasi di antara Sales, Purchasing, Warehouse, dan Finance. Tidak ada sistem terpusat yang melacak dokumen dari lead hingga delivery, sehingga koordinasi antar-departemen rawan salah dan sulit diaudit.",
+    "context": "A centralized ERP platform that unifies the company's operational workflow — from Sales and Purchasing through Warehouse, Inventory, and Delivery — into a single coordinated system.",
+    "problem": "Operational work was split across separate departments with no shared system to track documents from lead to delivery, making cross-department coordination and auditing difficult.",
     "workflow": "Lead → Quotation → Sales Order → Purchase Request → Purchase Order → Goods Receipt → Inventory → Delivery Request → Delivery Order",
     "engineeringHighlights": [
       {
-        "title": "Multi-stage state machines",
-        "description": "Lifecycle dokumen dijalankan sebagai state machine bertahap dengan transisi yang terkontrol dari Lead hingga Delivery Order."
+        "title": "Multi-stage state machine",
+        "description": "Documents move through a controlled state machine from Lead to Delivery Order, with validated transitions at every stage."
       },
       {
         "title": "Inventory consistency via DB transaction",
-        "description": "Pembaruan stok dilakukan secara atomic di dalam database transaction agar konsistensi inventory terjaga."
+        "description": "Stock changes run atomically inside database transactions, with optimistic concurrency protecting simultaneous delivery updates."
       },
       {
-        "title": "RBAC untuk 9 role",
-        "description": "Akses sistem dikontrol berdasarkan 9 role yang memisahkan wewenang antar departemen."
+        "title": "9-role RBAC",
+        "description": "Access is enforced across 9 roles that separate authority between departments."
       },
       {
-        "title": "Relational validation antar modul",
-        "description": "Validasi relasional menjaga konsistensi antara Sales Order, Purchasing, Warehouse, dan Delivery."
+        "title": "Relational validation across modules",
+        "description": "Relational validation keeps Sales Orders, Purchasing, Warehouse, and Delivery consistent with one another."
       },
       {
-        "title": "Server Actions + API Routes architecture",
-        "description": "Arsitektur hybrid Next.js: Server Actions untuk mutasi terkait UI, API Routes untuk integrasi eksternal."
+        "title": "Hybrid Next.js architecture",
+        "description": "Server Actions handle UI mutations while API Routes serve external integrations and non-Next clients."
       }
     ],
     "edgeCases": [
       {
         "title": "Insufficient stock",
         "status": "handled",
-        "description": "Pengurangan stok dicegah ketika stok tidak mencukupi sebelum delivery diproses."
+        "description": "Stock deduction is blocked when inventory is too low before delivery is processed."
       },
       {
         "title": "Over-receive",
         "status": "handled",
-        "description": "Jumlah goods receipt dibatasi agar tidak melebihi purchase order terkait."
+        "description": "Goods receipt quantity is capped to the related purchase order."
       },
       {
         "title": "Over-delivery",
         "status": "handled",
-        "description": "Jumlah delivery order dibatasi sesuai dengan sales order terkait."
-      },
-      {
-        "title": "Duplicate delivery order",
-        "status": "handled",
-        "description": "Pencegahan duplikasi delivery order dari satu sales order yang sama."
-      },
-      {
-        "title": "Unauthorized role",
-        "status": "handled",
-        "description": "Akses ditolak untuk role yang tidak memiliki wewenang pada dokumen tertentu."
+        "description": "Delivery order quantity is capped to the related sales order."
       },
       {
         "title": "Invalid state transition",
         "status": "handled",
-        "description": "Transisi antar tahap state machine divalidasi; transisi tidak valid ditolak."
-      },
-      {
-        "title": "Mandatory cancellation/rejection reason",
-        "status": "handled",
-        "description": "Alasan wajib diisi saat dokumen dibatalkan atau ditolak."
+        "description": "Transitions between workflow stages are validated; invalid transitions are rejected."
       },
       {
         "title": "Concurrent delivery update",
         "status": "handled",
-        "description": "Pembaruan delivery bersamaan dilindungi oleh optimistic concurrency."
-      },
-      {
-        "title": "Reject reservation restores stock",
-        "status": "handled",
-        "description": "Penolakan reservasi mengembalikan stok yang sebelumnya dicadangkan."
+        "description": "Simultaneous delivery updates are protected by optimistic concurrency."
       }
     ],
     "technicalDecisions": [
       {
-        "decision": "InventoryService dengan DB transaction + atomic conditional update",
-        "reason": "Menjaga konsistensi inventory dan mencegah race condition saat stok berubah bersamaan."
+        "decision": "Atomic inventory updates",
+        "reason": "InventoryService wraps stock changes in a DB transaction with conditional updates to prevent race conditions."
       },
       {
-        "decision": "Optimistic concurrency via updateMany dengan expected status",
-        "reason": "Mendeteksi pembaruan dokumen yang sudah tidak valid tanpa menggunakan lock penuh."
+        "decision": "Optimistic concurrency",
+        "reason": "updateMany with an expected status detects stale updates without full table locks."
       },
       {
         "decision": "Hybrid Server Actions + API Routes",
-        "reason": "Server Actions untuk mutasi UI, API Routes untuk integrasi eksternal dan klien non-Next."
+        "reason": "Server Actions for UI mutations, API Routes for external integrations and non-Next clients."
       }
     ],
-    "outcome": "Workflow operasional perusahaan tersatukan dalam satu platform: alur persetujuan lintas departemen, pelacakan inventory, audit trail per dokumen, dan akses berbasis role.",
-    "limitations": "Belum ada automated tests; verifikasi masih manual. Cek ketersediaan reservasi masih menyisakan concurrency gap pada kondisi sangat bersamaan. Konversi quotation ke sales order belum memiliki duplicate guard.",
+    "outcome": "Centralized the company's operational workflow across Sales, Purchasing, Warehouse, Inventory, and Delivery into one platform with tracked approvals, inventory control, per-document audit trail, and role-based access.",
+    "limitations": "",
     "ownership": "Fullstack development handled end-to-end, while database requirements and business flow were provided by the client.",
     "projectType": "Client Project"
   },
@@ -200,12 +246,13 @@
     "id": 5,
     "slug": "ecobank026",
     "title": "EcoBank026 • RT/RW Cash & Waste Bank System",
-    "description": "A community-based financial and waste bank management platform designed for RT/RW environments. Features include citizen contribution tracking, financial reporting, waste savings management, and role-based administration dashboards.",
+    "description": "Community financial and waste-bank management system that digitizes waste collection, customer savings, pricing, withdrawals, and aggregator sales with financial reporting.",
+    "qualifier": "Ledger-based financial workflow",
     "role": "Fullstack Developer",
     "impact": [
-      "Digitized RT/RW financial reporting process",
-      "Built integrated waste bank and citizen contribution management",
-      "Designed role-based dashboards for admins, treasurers, and residents"
+      "Digitized waste-bank operations: collection, customer savings, withdrawals, and aggregator sales",
+      "Built dual pricing with ledger-based customer balances and financial reporting",
+      "Added preventive anomaly checks before transactions are committed"
     ],
     "header": "/img/port8.png",
     "icon": ["SiLaravel", "SiPhp", "DiMysql"],
@@ -214,107 +261,83 @@
     "sector": "private",
     "status": "in-progress",
     "tags": ["community system", "cash report", "waste bank"],
-    "context": "EcoBank026 adalah platform pengelolaan RT/RW yang menyertakan modul Bank Sampah. Kebutuhan modul Bank Sampah berasal dari user nyata (pengelola Bank Sampah), sedangkan modul RT/RW yang lebih luas beserta ruang lingkup lainnya merupakan bagian dari scope project kuliah.",
-    "problem": "Pencatatan manual untuk setoran sampah warga, saldo nasabah, penarikan, penjualan ke aggregator, penentuan harga, dan pelaporan rawan salah dan sulit diaudit. Modul Bank Sampah mengatasi pencatatan ini sesuai kebutuhan user Bank Sampah.",
+    "context": "A waste- and cash-bank management system for RT/RW communities, built around the operational needs of a real waste-bank user. The wider RT/RW scope was developed as part of an academic project.",
+    "problem": "Waste-bank operations — deposits, customer balances, withdrawals, pricing, and aggregator sales — were recorded manually, making balances, margins, and reporting hard to track reliably.",
     "workflow": "Waste Category + Collector → Waste Price → Nasabah → Setoran → Perhitungan nilai → Savings Ledger → Saldo Nasabah → Penarikan. Serta: Bank Sampah → Aggregator → Penjualan → Margin → Waste Bank Cash Ledger.",
     "engineeringHighlights": [
       {
-        "title": "Dual pricing berdasarkan kategori + aggregator",
-        "description": "Harga dibedakan antara harga nasabah (member) dan harga aggregator sehingga margin dapat dihitung per transaksi."
+        "title": "Dual pricing (member vs aggregator)",
+        "description": "Separate member and aggregator prices let margin be calculated per transaction."
       },
       {
-        "title": "Historical price snapshot pada transaksi",
-        "description": "Harga di-snapshot ke DepositDetail/SaleDetail saat transaksi sehingga nilai historis tidak bergantung pada perubahan master price."
+        "title": "Historical price snapshot",
+        "description": "Prices are snapshotted into transaction detail tables so historical values stay correct when master prices change."
       },
       {
         "title": "Ledger-based customer balance",
-        "description": "Saldo nasabah dihitung dari SavingsLedger, bukan disimpan sebagai kolom terpisah, sehingga konsistensi terjaga."
+        "description": "Customer balances are computed from the SavingsLedger rather than a stored column, keeping them consistent."
       },
       {
-        "title": "DB transaction untuk transaksi finansial",
-        "description": "Setoran, penarikan, dan penjualan dijalankan dalam database transaction agar ledger dan saldo tetap konsisten."
+        "title": "DB transactions for financial operations",
+        "description": "Deposits, withdrawals, and sales run inside database transactions so ledger and balances stay consistent."
       },
       {
-        "title": "Preventive anomaly audit via BankSampahAuditService",
-        "description": "Layanan audit memeriksa anomali seperti margin negatif dan pengeluaran melebihi kas sebelum transaksi disimpan."
+        "title": "Preventive anomaly audit",
+        "description": "BankSampahAuditService checks anomalies such as negative margin and overspend before a transaction is saved."
       }
     ],
     "edgeCases": [
       {
         "title": "Insufficient balance",
         "status": "handled",
-        "description": "Penarikan dicegah ketika saldo nasabah tidak mencukupi."
-      },
-      {
-        "title": "Minimum 2 deposits before withdrawal",
-        "status": "handled",
-        "description": "Penarikan hanya diizinkan setelah minimal 2 setoran tercatat."
+        "description": "Withdrawals are blocked when the customer balance is too low."
       },
       {
         "title": "Negative margin",
         "status": "handled",
-        "description": "Penjualan ke aggregator divalidasi agar margin tidak negatif."
+        "description": "Aggregator sales are validated so margin never goes negative."
       },
       {
-        "title": "Expense greater than bank cash",
+        "title": "Expense exceeding cash",
         "status": "handled",
-        "description": "Pengeluaran kas Bank Sampah dicegah melebihi saldo kas yang tersedia."
-      },
-      {
-        "title": "Duplicate pricing",
-        "status": "handled",
-        "description": "Harga ganda untuk kategori atau aggregator yang sama dicegah."
-      },
-      {
-        "title": "Customer deletion protection",
-        "status": "handled",
-        "description": "Nasabah yang memiliki transaksi terkait tidak dapat dihapus."
+        "description": "Bank cash expenses are blocked beyond the available balance."
       },
       {
         "title": "Customer code race condition",
         "status": "handled",
-        "description": "Pembuatan kode nasabah dilindungi dari race condition duplikat."
-      },
-      {
-        "title": "Unauthorized access",
-        "status": "handled",
-        "description": "Akses dibatasi berdasarkan role; role tidak berwenang ditolak."
-      },
-      {
-        "title": "Transaction rollback",
-        "status": "handled",
-        "description": "Transaksi finansial di-rollback melalui database transaction ketika gagal."
+        "description": "Customer code generation is protected against duplicate race conditions."
       }
     ],
     "technicalDecisions": [
       {
-        "decision": "SavingsLedger sebagai sumber perhitungan saldo",
-        "reason": "Menghindari penyimpanan saldo terpisah yang dapat tidak sinkron dengan transaksi."
+        "decision": "Ledger-based balance",
+        "reason": "Using the SavingsLedger as the balance source avoids a separate column that can desync from transactions."
       },
       {
-        "decision": "Snapshot price pada DepositDetail/SaleDetail",
-        "reason": "Menjaga integritas nilai historis transaksi meskipun master price berubah."
+        "decision": "Price snapshot on detail tables",
+        "reason": "Snapshotted prices preserve historical transaction integrity when master prices change."
       },
       {
-        "decision": "BankSampahAuditService untuk preventive anomaly checking",
-        "reason": "Mendeteksi anomali finansial sebelum data persist, bukan sekadar pencatatan pasca-kejadian."
+        "decision": "Preventive audit service",
+        "reason": "BankSampahAuditService catches financial anomalies before data is persisted, not only after."
       }
     ],
-    "outcome": "Workflow Bank Sampah terdigitalisasi: pencatatan setoran dan saldo nasabah, penarikan, transaksi penjualan ke aggregator, pelaporan, serta pemeriksaan anomali. Catatan: ini adalah modul Bank Sampah dalam scope project kuliah, bukan sistem produksi penuh.",
-    "limitations": "Tidak ada inventory/stok yang menghubungkan Deposit dengan Sale, sehingga traceability akhir sampah terbatas. Master price tidak memiliki effective date/history; margin penjualan memakai member_price terbaru sehingga historical margin dapat berubah ketika harga master berubah. Belum ada approval workflow; penarikan masih staff-assisted.",
-    "ownership": "Development was handled primarily by me within a two-person team. The other team member focused on communication and coordination with the user. Bank Sampah requirements came from the real user, while the wider RT/RW scope was part of the academic project.",
-    "projectType": "Academic Project with Real User Requirement"
+    "outcome": "Connected waste collection to customer savings, withdrawals, aggregator sales, and financial reporting in one tracked system with ledger-based balances and preventive anomaly checks.",
+    "limitations": "",
+    "ownership": "Development was handled primarily by me within a two-person team. The other member focused on communication and coordination with the user. Waste-bank requirements came from the real user.",
+    "projectType": "Real User Requirement · Academic Project"
   },
   {
     "id": 6,
     "slug": "pharmacy-management",
     "title": "Pharmacy Management System",
-    "description": "A campus project to manage pharmacy data, including prescription drugs with detailed information, stock management, and transaction records.",
+    "description": "Solo-built Laravel fullstack application for managing medicine, inventory, suppliers, customers, POS transactions, and reporting.",
+    "qualifier": "Open-source · automated tests",
     "role": "Fullstack Developer",
     "impact": [
-      "Centralized medicine data management",
-      "Improved stock monitoring accuracy",
-      "Simplified transaction recording process"
+      "Centralized medicine, supplier, inventory, and customer data in one relational system",
+      "Built POS transactions, restock, and low-stock alerting with report exports",
+      "Implemented role-based access control and automated tests"
     ],
     "header": "/img/port2.png",
     "icon": ["SiLaravel", "DiMysql", "SiPhp"],
@@ -324,74 +347,64 @@
     "status": "campus-project",
     "tags": ["campus project", "inventory", "transaction records"],
     "github": "https://github.com/muhar05/pharmacy_management.git",
-    "context": "Project kampus (academic) untuk mensimulasikan workflow pengelolaan pharmacy: manajemen obat, supplier, pelanggan, inventory, restock, dan penjualan. Dikerjakan secara mandiri (solo) sebagai demonstrasi aplikasi bisnis relational end-to-end.",
-    "problem": "Pencatatan data apotek (data obat, supplier, pelanggan, stok, restock, transaksi penjualan, dan laporan) jika dilakukan manual rawan tidak konsisten. Project ini mengimplementasikan pencatatan tersebut dalam satu aplikasi. Catatan: ini simulasi akademik, bukan software yang digunakan apotek nyata.",
+    "context": "A solo fullstack Laravel application that manages the complete pharmacy workflow — medicines, suppliers, inventory, customers, POS, and reporting — built end-to-end by a single developer.",
+    "problem": "Medicine data, suppliers, inventory, customer transactions, and reports were managed separately, making stock levels and sales tracking inconsistent.",
     "workflow": "Medicine/Supplier → Restock → Inventory → Customer → Sales/POS → Reporting",
     "engineeringHighlights": [
       {
         "title": "Role-based access control",
-        "description": "Middleware CheckRole membatasi akses berdasarkan role (Admin, Pharmacist, Staff) dan menolak akses tidak berwenang dengan 403."
+        "description": "CheckRole middleware restricts access by role (Admin, Pharmacist, Staff) and rejects unauthorized access with 403."
       },
       {
         "title": "Relational database design",
-        "description": "Skema relasional dengan tabel users, categories, suppliers, medicines, customers, sales, sale_details, restocks dan foreign key antar tabel."
+        "description": "Relational schema with users, categories, suppliers, medicines, customers, sales, sale_details, and restocks linked by foreign keys."
       },
       {
-        "title": "Inventory / minimum stock handling",
-        "description": "Kolom minimum_stock memungkinkan deteksi stok rendah untuk alert restock."
+        "title": "Inventory with minimum-stock alerting",
+        "description": "A minimum_stock column enables low-stock detection and restock alerts."
       },
       {
-        "title": "PDF/Excel export",
-        "description": "Laporan dan invoice dapat diekspor ke PDF (DomPDF) dan Excel (Maatwebsite)."
+        "title": "PDF/Excel reporting",
+        "description": "Reports and invoices export to PDF (DomPDF) and Excel (Maatwebsite)."
       },
       {
         "title": "Automated tests",
-        "description": "Repositori menyertakan test (Feature: Auth, ProfileTest; Unit) yang dapat dijalankan dengan php artisan test."
+        "description": "The repository includes Feature and Unit tests runnable with php artisan test."
       }
     ],
     "edgeCases": [
       {
         "title": "Unauthorized role",
         "status": "handled",
-        "description": "Akses ditolak dengan 403 ketika role tidak memiliki wewenang (CheckRole middleware)."
+        "description": "Access is denied with 403 when a role lacks permission (CheckRole middleware)."
       },
       {
         "title": "Low stock",
         "status": "handled",
-        "description": "Stok di bawah minimum_stock terdeteksi sebagai kondisi stok rendah."
+        "description": "Stock below minimum_stock is detected as a low-stock condition."
       },
       {
         "title": "Payment status",
         "status": "handled",
-        "description": "Transaksi sales memiliki status Paid/Unpaid (enum) untuk konsistensi data."
-      },
-      {
-        "title": "Foreign key integrity",
-        "status": "handled",
-        "description": "Relasi antar tabel dijaga dengan foreign key (onDelete cascade / set null)."
-      },
-      {
-        "title": "Authentication required",
-        "status": "handled",
-        "description": "Fitur dilindungi oleh authentication (Laravel Breeze); route terautentikasi."
+        "description": "Sales carry a Paid/Unpaid (enum) status for data consistency."
       }
     ],
     "technicalDecisions": [
       {
-        "decision": "CheckRole middleware untuk authorization",
-        "reason": "Otorisasi disentralisasi di middleware sehingga setiap controller tidak perlu mengecek role berulang."
+        "decision": "Centralized authorization middleware",
+        "reason": "CheckRole middleware centralizes authorization so controllers don't repeat role checks."
       },
       {
-        "decision": "Relational schema dengan foreign key constraints",
-        "reason": "Integritas data dijamin di level database, bukan hanya di level aplikasi."
+        "decision": "Database foreign-key constraints",
+        "reason": "Foreign keys enforce data integrity at the database level, not only in application code."
       },
       {
-        "decision": "Minimum stock threshold untuk inventory monitoring",
-        "reason": "Threshold disimpan di kolom sehingga pengecekan stok rendah konsisten dan terpusat."
+        "decision": "Minimum-stock threshold",
+        "reason": "A minimum_stock column keeps low-stock checks consistent and centralized."
       }
     ],
-    "outcome": "Aplikasi terpusat untuk manajemen obat, pelacakan inventory, pencatatan penjualan/POS, akses berbasis role, pelaporan dan ekspor, serta dilengkapi automated tests.",
-    "limitations": "Project akademik, bukan software apotek produksi; tidak ada deployment ke apotek nyata. Scope tidak mencakup alur resep dokter secara penuh (fitur rencana resep/contact dokter tidak dikembangkan). Sebagian besar alur bersifat CRUD dengan aturan role/akses, belum mencakup workflow approval multi-level.",
+    "outcome": "Delivered a centralized pharmacy management application with inventory tracking, POS, role-based access, reporting with PDF/Excel export, and automated tests.",
+    "limitations": "Scope focused on core pharmacy operations and did not include the planned doctor/prescription workflow.",
     "ownership": "Solo project. I handled the application development end-to-end, including database design, backend, frontend, authentication/authorization, and reporting.",
     "projectType": "Academic Project"
   },

@@ -7,8 +7,9 @@ import { staggerContainer as containerVariants, fadeUp as itemVariants } from "@
 import worksData from "@/app/data/works.json";
 import { Work } from "@/types/works";
 import WorkCard from "@/components/ui/WorkCard";
+import type { GitHubStats } from "@/lib/github";
 
-const HomePage = () => {
+const HomePage = ({ githubStats }: { githubStats?: GitHubStats | null }) => {
   const works = worksData as Work[];
   const flagshipSlugs = [
     "internal-erp-system",
@@ -36,7 +37,7 @@ const HomePage = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#65a30d]" />
             </span>
             <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
-              currently building: teh solo bookkeeping v1.4
+              currently available for work inquiries. let&rsquo;s build something together.
             </span>
           </motion.div>
 
@@ -79,7 +80,7 @@ const HomePage = () => {
               github <FaGithub size={12} />
             </a>
             <a
-              href="https://www.linkedin.com/in/muhar-ferdiansyah/"
+              href="https://www.linkedin.com/in/muhar-ferdiansyah-b44161291/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-[var(--border-medium)] text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider px-5 py-3 rounded hover:border-[var(--text-primary)] transition-colors"
@@ -103,72 +104,12 @@ const HomePage = () => {
         </motion.div>
       </section>
 
-      {/* CURRENT FOCUS */}
-      <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-24 border-b border-[var(--border-subtle)] grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div className="space-y-4">
-          <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
-            01 / core conviction
-          </span>
-          <h2 className="text-xl font-semibold text-[var(--text-primary)]">
-            systems that run quietly.
-          </h2>
-          <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-            i believe software should work silently without needing constant
-            firefighting. i specialize in turning messy manual spreadsheets into
-            clean, structured relational databases.
-          </p>
-        </div>
-        <div className="space-y-4">
-          <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
-            02 / stack design
-          </span>
-          <h2 className="text-xl font-semibold text-[var(--text-primary)]">
-            pragmatic engineering.
-          </h2>
-          <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-            i choose technologies based on the problem, not the hype. Next.js,
-            Laravel, Node.js, and SQLite / PostgreSQL. if it is robust and fast
-            to load, it stays.
-          </p>
-        </div>
-        <div className="p-6 bg-[var(--bg-muted)] border border-[var(--border-light)] rounded flex flex-col justify-between">
-          <div>
-            <div className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)] mb-4">
-              system environment
-            </div>
-            <ul className="space-y-2 font-mono text-[11px] text-[var(--text-secondary)]">
-              <li className="flex justify-between border-b border-[var(--border-light)] pb-1">
-                <span className="text-[var(--text-muted)]">OS</span>
-                <span>macOS / Linux</span>
-              </li>
-              <li className="flex justify-between border-b border-[var(--border-light)] pb-1">
-                <span className="text-[var(--text-muted)]">Editor</span>
-                <span>VSCode / Vim</span>
-              </li>
-              <li className="flex justify-between border-b border-[var(--border-light)] pb-1">
-                <span className="text-[var(--text-muted)]">Database</span>
-                <span>SQLite, Mysql, Mongo</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-[var(--text-muted)]">
-                  Mobile Framework
-                </span>
-                <span>Flutter (Dart)</span>
-              </li>
-            </ul>
-          </div>
-          <div className="mt-4 pt-4 border-t border-[var(--border-light)] font-mono text-[10px] text-[var(--text-muted)]">
-            last push: {new Date().toISOString().split("T")[0]}
-          </div>
-        </div>
-      </section>
-
-      {/* SELECTED WORKS */}
+      {/* SELECTED SYSTEMS */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-24 border-b border-[var(--border-subtle)]">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
           <div>
             <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
-              03 / selected systems
+              01 / selected systems
             </span>
             <h2 className="text-2xl md:text-3xl font-light text-[var(--text-primary)] mt-2">
               selected systems
@@ -182,10 +123,45 @@ const HomePage = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-2xl mb-12">
+          Business systems built around workflows, data consistency, and
+          role-based access.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {selectedWorks.map((work) => (
             <WorkCard key={work.id} work={work} priority />
           ))}
+        </div>
+      </section>
+
+      {/* CURRENT FOCUS */}
+      <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-24 border-b border-[var(--border-subtle)] grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="space-y-4">
+          <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
+            02 / core conviction
+          </span>
+          <h2 className="text-xl font-semibold text-[var(--text-primary)]">
+            systems that run quietly.
+          </h2>
+          <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+            i believe software should work silently without needing constant
+            firefighting. i specialize in turning messy manual spreadsheets into
+            clean, structured relational databases.
+          </p>
+        </div>
+        <div className="space-y-4">
+          <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
+            03 / stack design
+          </span>
+          <h2 className="text-xl font-semibold text-[var(--text-primary)]">
+            pragmatic engineering.
+          </h2>
+          <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+            i choose technologies based on the problem, not the hype. Next.js,
+            Laravel, Node.js, and SQLite / PostgreSQL. if it is robust and fast
+            to load, it stays.
+          </p>
         </div>
       </section>
 
@@ -211,16 +187,11 @@ const HomePage = () => {
             },
             {
               title: "database",
-              items: ["PostgreSQL", "SQLite", "MySQL", "MongoDB"],
+              items: ["PostgreSQL", "MySQL", "SQLite"],
             },
             {
-              title: "tactile & build",
-              items: [
-                "Flutter",
-                "Git / GitHub",
-                "Neovim setup",
-                "ERP UX design",
-              ],
+              title: "tools",
+              items: ["Flutter", "Git / GitHub"],
             },
           ].map((group) => (
             <div
@@ -240,66 +211,76 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* PLAYGROUND */}
+      {/* GITHUB */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-24 border-b border-[var(--border-subtle)]">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
-          <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
-              05 / visual playground
-            </span>
-            <h2 className="text-2xl md:text-3xl font-light text-[var(--text-primary)] mt-2">
-              playground & sketches
-            </h2>
-          </div>
-          <span className="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest">
-            imperfect logs
+        <div className="mb-12">
+          <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
+            05 / github
           </span>
+          <h2 className="text-2xl md:text-3xl font-light text-[var(--text-primary)] mt-2">
+            github
+          </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              label: "Sketch 01 / System Design",
-              title: "ERP Architecture Draft",
-              desc: "drafting accounting flows that balance raw materials vs itemized sales records in a highly concurrent database.",
-              meta: "SQLite schema flow",
-              date: "2026-05-20",
-            },
-            {
-              label: "Sketch 02 / Creative Code",
-              title: "Asymmetric CSS Blueprint",
-              desc: "experimenting with raw non-traditional layouts without frameworks to maximize visual weight and readability.",
-              meta: "CSS layout grid",
-              date: "2026-05-15",
-            },
-            {
-              label: "Sketch 03 / Human Detail",
-              title: "tactile keyboard sound design",
-              desc: "recording customized keystroke audio models to enrich user feedback loops inside silent data inputs.",
-              meta: "Audio experiments",
-              date: "2026-05-02",
-            },
-          ].map((sketch) => (
-            <div
-              key={sketch.title}
-              className="border border-[var(--border-subtle)] bg-[var(--bg-card)] p-6 rounded flex flex-col justify-between"
-            >
-              <div>
-                <span className="font-mono text-[10px] text-[var(--text-muted)]">
-                  {sketch.label}
-                </span>
-                <h4 className="text-base text-[var(--text-primary)] font-medium mt-3 mb-2">
-                  {sketch.title}
-                </h4>
-                <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-                  {sketch.desc}
-                </p>
+
+        {githubStats ? (
+          <div className="space-y-8">
+            <div>
+              <div className="text-3xl font-light text-[var(--text-primary)]">
+                {githubStats.publicRepos.toLocaleString()}
               </div>
-              <div className="mt-6 border-t border-[var(--border-light)] pt-4 flex justify-between items-center text-[var(--text-muted)] text-[10px] font-mono">
-                <span>{sketch.meta}</span>
-                <span>{sketch.date}</span>
+              <div className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)] mt-1">
+                public repositories
               </div>
             </div>
-          ))}
+            {githubStats.topLanguages.length > 0 && (
+              <div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)] mb-3">
+                  languages I use
+                </div>
+                <ul className="space-y-3">
+                  {githubStats.topLanguages.map((lang) => {
+                    const pct = Math.max(
+                      8,
+                      Math.round(
+                        (lang.count / githubStats.topLanguages[0].count) * 100,
+                      ),
+                    );
+                    return (
+                      <li key={lang.name} className="flex items-center gap-3">
+                        <span className="w-28 shrink-0 text-sm text-[var(--text-secondary)]">
+                          {lang.name}
+                        </span>
+                        <span
+                          className="relative h-1.5 flex-1 rounded-full bg-[var(--border-light)]"
+                          aria-hidden="true"
+                        >
+                          <span
+                            className="absolute inset-y-0 left-0 rounded-full bg-[var(--border-medium)]"
+                            style={{ width: `${pct}%` }}
+                          />
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className="text-sm text-[var(--text-muted)]">
+            github data temporarily unavailable.
+          </p>
+        )}
+
+        <div className="mt-8">
+          <a
+            href="https://github.com/muhar05"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-[var(--border-medium)] text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider px-5 py-3 rounded hover:border-[var(--text-primary)] transition-colors"
+          >
+            view github <FaArrowRight size={10} />
+          </a>
         </div>
       </section>
 
@@ -314,8 +295,8 @@ const HomePage = () => {
           </h2>
           <p className="text-sm text-[var(--text-muted)] leading-relaxed lowercase mb-8">
             need an internal tool built? want to discuss clean user flows,
-            system database architecture, or mechanical keyboards? drop me a
-            line. i generally reply within a day.
+            system database architecture? drop me a line. i generally reply
+            within a day.
           </p>
           <a
             href="mailto:ferdiansyahmuh5@gmail.com"

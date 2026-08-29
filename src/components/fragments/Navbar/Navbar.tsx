@@ -32,7 +32,7 @@ const Navbar = () => {
           </Link>
           <div className="hidden sm:block h-3 w-px bg-white/10" />
           <span className="hidden sm:inline font-mono text-[10px] uppercase tracking-wider text-[#8e9196]">
-            Systems & UI Dev
+            Fullstack Developer
           </span>
         </div>
 
