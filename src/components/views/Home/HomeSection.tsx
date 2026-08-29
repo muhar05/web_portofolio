@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaArrowRight, FaEnvelope } from "react-icons/fa";
+import { FaArrowRight, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { staggerContainer as containerVariants, fadeUp as itemVariants } from "@/app/lib/animations";
 import worksData from "@/app/data/works.json";
 import { Work } from "@/types/works";
@@ -10,9 +10,12 @@ import WorkCard from "@/components/ui/WorkCard";
 
 const HomePage = () => {
   const works = worksData as Work[];
-  const productionWorks = works
-    .filter((w) => w.sector === "production")
-    .slice(0, 3);
+  const flagshipSlugs = [
+    "internal-erp-system",
+    "ecobank026",
+    "pharmacy-management",
+  ];
+  const selectedWorks = works.filter((w) => flagshipSlugs.includes(w.slug));
 
   return (
     <main className="w-full bg-[var(--bg-primary)] min-h-screen text-[var(--text-secondary)] overflow-hidden">
@@ -43,22 +46,18 @@ const HomePage = () => {
           >
             i&rsquo;m muhar. <br />
             <span className="font-semibold text-white">
-              creating systems
+              fullstack developer
             </span>{" "}
-            and{" "}
-            <span className="italic text-[var(--text-muted)]">
-              random chaos
-            </span>
-            .
+            building internal systems and business applications.
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="text-base md:text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl lowercase mb-10"
           >
-            building practical things on the internet and quiet interfaces for
-            real workflows. currently building internal enterprise systems and
-            side experiments in banten, indonesia.
+            i build business applications and internal systems around real
+            operational workflows — relational, data-driven tools that replace
+            manual processes. based in banten, indonesia.
           </motion.p>
 
           <motion.div
@@ -71,6 +70,22 @@ const HomePage = () => {
             >
               selected works <FaArrowRight size={10} />
             </Link>
+            <a
+              href="https://github.com/muhar05"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-[var(--border-medium)] text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider px-5 py-3 rounded hover:border-[var(--text-primary)] transition-colors"
+            >
+              github <FaGithub size={12} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/muhar-ferdiansyah/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-[var(--border-medium)] text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider px-5 py-3 rounded hover:border-[var(--text-primary)] transition-colors"
+            >
+              linkedin <FaLinkedin size={12} />
+            </a>
             <Link
               href="/link"
               className="inline-flex items-center gap-2 border border-[var(--border-medium)] text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider px-5 py-3 rounded hover:border-[var(--text-primary)] transition-colors"
@@ -78,6 +93,13 @@ const HomePage = () => {
               connect
             </Link>
           </motion.div>
+
+          <motion.p
+            variants={itemVariants}
+            className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]"
+          >
+            business workflows · rbac · data consistency · relational systems
+          </motion.p>
         </motion.div>
       </section>
 
@@ -146,7 +168,7 @@ const HomePage = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
           <div>
             <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
-              03 / production code
+              03 / selected systems
             </span>
             <h2 className="text-2xl md:text-3xl font-light text-[var(--text-primary)] mt-2">
               selected systems
@@ -161,7 +183,7 @@ const HomePage = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {productionWorks.slice(0, 2).map((work) => (
+          {selectedWorks.map((work) => (
             <WorkCard key={work.id} work={work} priority />
           ))}
         </div>

@@ -14,4 +14,16 @@ export interface Work {
   tags?: string[];
   domain?: string;
   github?: string;
+
+  // Optional fields for engineering-signal detail (all optional for backward compatibility)
+  context?: string;
+  problem?: string;
+  workflow?: string;
+  engineeringHighlights?: { title: string; description: string }[];
+  edgeCases?: { title: string; status: string; description: string }[];
+  technicalDecisions?: { decision: string; reason: string }[];
+  outcome?: string;
+  limitations?: string;
+  ownership?: string;
+  projectType?: string;
 }

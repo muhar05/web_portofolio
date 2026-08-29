@@ -1,137 +1,427 @@
 [
-{
-"id": 1,
-"slug": "ecarrgo-platform",
-"title": "Ecarrgo Web & Mobile Platform",
-"description": "A logistics platform for web and mobile applications. My role focused on frontend development for real-time chat, live tracking, and real-time auction features.",
-"role": "Frontend Developer",
-"impact": [
-"Implemented real-time chat for faster communication",
-"Built live tracking interface for shipment monitoring",
-"Developed real-time auction UI experience"
-],
-"header": "/img/port4.png",
-"icon": ["SiReact", "SiFlutter"],
-"ongoing": false,
-"source": "closed-source",
-"sector": "production",
-"status": "production",
-"tags": ["logistics", "real-time", "web & mobile"]
-},
-{
-"id": 2,
-"slug": "nsa-performance-revamp",
-"title": "NSA Performance Website Revamp",
-"description": "Revamped the UI of nsaperformance.id and developed a flash sales feature using Laravel Blade to improve user experience and promotional flow.",
-"role": "Frontend Developer",
-"impact": [
-"Redesigned UI for better navigation and visual clarity",
-"Built flash sales feature with countdown timer",
-"Improved responsive layout across devices"
-],
-"domain": "https://nsaperformance.id/",
-"header": "/img/port5.png",
-"icon": ["SiLaravel", "SiPhp"],
-"ongoing": false,
-"source": "closed-source",
-"sector": "production",
-"status": "live",
-"tags": ["company website", "flash sale", "responsive UI"]
-},
-{
-"id": 3,
-"slug": "ppdb-online-system",
-"title": "PPDB Online School System",
-"description": "An online student admission system integrated with a WordPress landing page. The system supports online registration, data validation, and applicant management through an admin dashboard.",
-"role": "Fullstack Developer",
-"impact": [
-"Built online registration form with validation",
-"Integrated Laravel backend with WordPress landing page",
-"Created admin dashboard to manage applicants"
-],
-"header": "/img/port6.png",
-"icon": ["SiLaravel", "SiPhp", "DiMysql"],
-"ongoing": false,
-"source": "closed-source",
-"sector": "production",
-"status": "completed",
-"tags": ["school system", "registration", "admin dashboard", "ready to deploy"]
-},
-{
-"id": 4,
-"slug": "internal-erp-system",
-"title": "Internal ERP System",
-"description": "An ongoing internal ERP platform built to support operational workflows such as purchasing, inventory tracking, reporting, and internal data management. Focused on practical interfaces for daily company operations.",
-"role": "Fullstack Developer",
-"impact": [
-"Improved internal workflow efficiency through a centralized system",
-"Built responsive dashboards and operational interfaces",
-"Helped simplify reporting and purchasing processes"
-],
-"header": "/img/port7.png",
-"icon": ["SiNextdotjs", "SiTypescript", "SiTailwindcss", "DiPostgresql"],
-"ongoing": true,
-"source": "private-internal",
-"sector": "private",
-"status": "in-progress",
-"tags": ["erp", "internal tools", "operations"]
-},
-{
-"id": 5,
-"slug": "ecobank026",
-"title": "EcoBank026 • RT/RW Cash & Waste Bank System",
-"description": "A community-based financial and waste bank management platform designed for RT/RW environments. Features include citizen contribution tracking, financial reporting, waste savings management, and role-based administration dashboards.",
-"role": "Fullstack Developer",
-"impact": [
-"Digitized RT/RW financial reporting process",
-"Built integrated waste bank and citizen contribution management",
-"Designed role-based dashboards for admins, treasurers, and residents"
-],
-"header": "/img/port8.png",
-"icon": ["SiLaravel", "SiPhp", "DiMysql"],
-"ongoing": true,
-"source": "private-project",
-"sector": "private",
-"status": "in-progress",
-"tags": ["community system", "cash report", "waste bank"]
-},
-{
-"id": 6,
-"slug": "pharmacy-management",
-"title": "Pharmacy Management System",
-"description": "A campus project to manage pharmacy data, including prescription drugs with detailed information, stock management, and transaction records.",
-"role": "Fullstack Developer",
-"impact": [
-"Centralized medicine data management",
-"Improved stock monitoring accuracy",
-"Simplified transaction recording process"
-],
-"header": "/img/port2.png",
-"icon": ["SiLaravel", "DiMysql", "SiPhp"],
-"ongoing": false,
-"source": "open-source",
-"sector": "experiment",
-"status": "campus-project",
-"tags": ["campus project", "inventory", "transaction records"],
-"github": "https://github.com/muhar05/pharmacy_management.git"
-},
-{
-"id": 7,
-"slug": "coffee-shop-management",
-"title": "Coffee Shop Management App",
-"description": "A learning-driven mobile management application focused on sales tracking, expense management, and daily transaction monitoring.",
-"role": "Fullstack Developer",
-"impact": [
-"Helped record daily sales digitally",
-"Improved transaction tracking efficiency",
-"Reduced manual reporting"
-],
-"header": "/img/port3.png",
-"icon": ["SiFlutter", "SiDart", "SiSqlite"],
-"ongoing": false,
-"source": "closed-source",
-"sector": "experiment",
-"status": "learning-project",
-"tags": ["mobile app", "sales tracking", "sqlite"]
-}
+  {
+    "id": 1,
+    "slug": "ecarrgo-platform",
+    "title": "Ecarrgo Web & Mobile Platform",
+    "description": "A logistics platform for web and mobile applications. My role focused on frontend development for real-time chat, live tracking, and real-time auction features.",
+    "role": "Frontend Developer",
+    "impact": [
+      "Implemented real-time chat for faster communication",
+      "Built live tracking interface for shipment monitoring",
+      "Developed real-time auction UI experience"
+    ],
+    "header": "/img/port4.png",
+    "icon": ["SiReact", "SiFlutter"],
+    "ongoing": false,
+    "source": "closed-source",
+    "sector": "production",
+    "status": "production",
+    "tags": ["logistics", "real-time", "web & mobile"],
+    "context": "",
+    "problem": "",
+    "workflow": "",
+    "engineeringHighlights": [],
+    "edgeCases": [],
+    "technicalDecisions": [],
+    "outcome": "",
+    "limitations": "",
+    "ownership": "",
+    "projectType": ""
+  },
+  {
+    "id": 2,
+    "slug": "nsa-performance-revamp",
+    "title": "NSA Performance Website Revamp",
+    "description": "Revamped the UI of nsaperformance.id and developed a flash sales feature using Laravel Blade to improve user experience and promotional flow.",
+    "role": "Frontend Developer",
+    "impact": [
+      "Redesigned UI for better navigation and visual clarity",
+      "Built flash sales feature with countdown timer",
+      "Improved responsive layout across devices"
+    ],
+    "domain": "https://nsaperformance.id/",
+    "header": "/img/port5.png",
+    "icon": ["SiLaravel", "SiPhp"],
+    "ongoing": false,
+    "source": "closed-source",
+    "sector": "production",
+    "status": "live",
+    "tags": ["company website", "flash sale", "responsive UI"],
+    "context": "",
+    "problem": "",
+    "workflow": "",
+    "engineeringHighlights": [],
+    "edgeCases": [],
+    "technicalDecisions": [],
+    "outcome": "",
+    "limitations": "",
+    "ownership": "",
+    "projectType": ""
+  },
+  {
+    "id": 3,
+    "slug": "ppdb-online-system",
+    "title": "PPDB Online School System",
+    "description": "An online student admission system integrated with a WordPress landing page. The system supports online registration, data validation, and applicant management through an admin dashboard.",
+    "role": "Fullstack Developer",
+    "impact": [
+      "Built online registration form with validation",
+      "Integrated Laravel backend with WordPress landing page",
+      "Created admin dashboard to manage applicants"
+    ],
+    "header": "/img/port6.png",
+    "icon": ["SiLaravel", "SiPhp", "DiMysql"],
+    "ongoing": false,
+    "source": "closed-source",
+    "sector": "production",
+    "status": "completed",
+    "tags": ["school system", "registration", "admin dashboard", "ready to deploy"],
+    "context": "",
+    "problem": "",
+    "workflow": "",
+    "engineeringHighlights": [],
+    "edgeCases": [],
+    "technicalDecisions": [],
+    "outcome": "",
+    "limitations": "",
+    "ownership": "",
+    "projectType": ""
+  },
+  {
+    "id": 4,
+    "slug": "internal-erp-system",
+    "title": "Internal ERP System",
+    "description": "An ongoing internal ERP platform built to support operational workflows such as purchasing, inventory tracking, reporting, and internal data management. Focused on practical interfaces for daily company operations.",
+    "role": "Fullstack Developer",
+    "impact": [
+      "Improved internal workflow efficiency through a centralized system",
+      "Built responsive dashboards and operational interfaces",
+      "Helped simplify reporting and purchasing processes"
+    ],
+    "header": "/img/port7.png",
+    "icon": ["SiNextdotjs", "SiTypescript", "SiTailwindcss", "DiPostgresql"],
+    "ongoing": true,
+    "source": "private-internal",
+    "sector": "private",
+    "status": "in-progress",
+    "tags": ["erp", "internal tools", "operations"],
+    "context": "Sistem ini digunakan untuk menyatukan workflow operasional perusahaan agar departemen yang sebelumnya bekerja terpisah dapat berkoordinasi dalam satu platform.",
+    "problem": "Workflow operasional terfragmentasi di antara Sales, Purchasing, Warehouse, dan Finance. Tidak ada sistem terpusat yang melacak dokumen dari lead hingga delivery, sehingga koordinasi antar-departemen rawan salah dan sulit diaudit.",
+    "workflow": "Lead → Quotation → Sales Order → Purchase Request → Purchase Order → Goods Receipt → Inventory → Delivery Request → Delivery Order",
+    "engineeringHighlights": [
+      {
+        "title": "Multi-stage state machines",
+        "description": "Lifecycle dokumen dijalankan sebagai state machine bertahap dengan transisi yang terkontrol dari Lead hingga Delivery Order."
+      },
+      {
+        "title": "Inventory consistency via DB transaction",
+        "description": "Pembaruan stok dilakukan secara atomic di dalam database transaction agar konsistensi inventory terjaga."
+      },
+      {
+        "title": "RBAC untuk 9 role",
+        "description": "Akses sistem dikontrol berdasarkan 9 role yang memisahkan wewenang antar departemen."
+      },
+      {
+        "title": "Relational validation antar modul",
+        "description": "Validasi relasional menjaga konsistensi antara Sales Order, Purchasing, Warehouse, dan Delivery."
+      },
+      {
+        "title": "Server Actions + API Routes architecture",
+        "description": "Arsitektur hybrid Next.js: Server Actions untuk mutasi terkait UI, API Routes untuk integrasi eksternal."
+      }
+    ],
+    "edgeCases": [
+      {
+        "title": "Insufficient stock",
+        "status": "handled",
+        "description": "Pengurangan stok dicegah ketika stok tidak mencukupi sebelum delivery diproses."
+      },
+      {
+        "title": "Over-receive",
+        "status": "handled",
+        "description": "Jumlah goods receipt dibatasi agar tidak melebihi purchase order terkait."
+      },
+      {
+        "title": "Over-delivery",
+        "status": "handled",
+        "description": "Jumlah delivery order dibatasi sesuai dengan sales order terkait."
+      },
+      {
+        "title": "Duplicate delivery order",
+        "status": "handled",
+        "description": "Pencegahan duplikasi delivery order dari satu sales order yang sama."
+      },
+      {
+        "title": "Unauthorized role",
+        "status": "handled",
+        "description": "Akses ditolak untuk role yang tidak memiliki wewenang pada dokumen tertentu."
+      },
+      {
+        "title": "Invalid state transition",
+        "status": "handled",
+        "description": "Transisi antar tahap state machine divalidasi; transisi tidak valid ditolak."
+      },
+      {
+        "title": "Mandatory cancellation/rejection reason",
+        "status": "handled",
+        "description": "Alasan wajib diisi saat dokumen dibatalkan atau ditolak."
+      },
+      {
+        "title": "Concurrent delivery update",
+        "status": "handled",
+        "description": "Pembaruan delivery bersamaan dilindungi oleh optimistic concurrency."
+      },
+      {
+        "title": "Reject reservation restores stock",
+        "status": "handled",
+        "description": "Penolakan reservasi mengembalikan stok yang sebelumnya dicadangkan."
+      }
+    ],
+    "technicalDecisions": [
+      {
+        "decision": "InventoryService dengan DB transaction + atomic conditional update",
+        "reason": "Menjaga konsistensi inventory dan mencegah race condition saat stok berubah bersamaan."
+      },
+      {
+        "decision": "Optimistic concurrency via updateMany dengan expected status",
+        "reason": "Mendeteksi pembaruan dokumen yang sudah tidak valid tanpa menggunakan lock penuh."
+      },
+      {
+        "decision": "Hybrid Server Actions + API Routes",
+        "reason": "Server Actions untuk mutasi UI, API Routes untuk integrasi eksternal dan klien non-Next."
+      }
+    ],
+    "outcome": "Workflow operasional perusahaan tersatukan dalam satu platform: alur persetujuan lintas departemen, pelacakan inventory, audit trail per dokumen, dan akses berbasis role.",
+    "limitations": "Belum ada automated tests; verifikasi masih manual. Cek ketersediaan reservasi masih menyisakan concurrency gap pada kondisi sangat bersamaan. Konversi quotation ke sales order belum memiliki duplicate guard.",
+    "ownership": "Fullstack development handled end-to-end, while database requirements and business flow were provided by the client.",
+    "projectType": "Client Project"
+  },
+  {
+    "id": 5,
+    "slug": "ecobank026",
+    "title": "EcoBank026 • RT/RW Cash & Waste Bank System",
+    "description": "A community-based financial and waste bank management platform designed for RT/RW environments. Features include citizen contribution tracking, financial reporting, waste savings management, and role-based administration dashboards.",
+    "role": "Fullstack Developer",
+    "impact": [
+      "Digitized RT/RW financial reporting process",
+      "Built integrated waste bank and citizen contribution management",
+      "Designed role-based dashboards for admins, treasurers, and residents"
+    ],
+    "header": "/img/port8.png",
+    "icon": ["SiLaravel", "SiPhp", "DiMysql"],
+    "ongoing": true,
+    "source": "private-project",
+    "sector": "private",
+    "status": "in-progress",
+    "tags": ["community system", "cash report", "waste bank"],
+    "context": "EcoBank026 adalah platform pengelolaan RT/RW yang menyertakan modul Bank Sampah. Kebutuhan modul Bank Sampah berasal dari user nyata (pengelola Bank Sampah), sedangkan modul RT/RW yang lebih luas beserta ruang lingkup lainnya merupakan bagian dari scope project kuliah.",
+    "problem": "Pencatatan manual untuk setoran sampah warga, saldo nasabah, penarikan, penjualan ke aggregator, penentuan harga, dan pelaporan rawan salah dan sulit diaudit. Modul Bank Sampah mengatasi pencatatan ini sesuai kebutuhan user Bank Sampah.",
+    "workflow": "Waste Category + Collector → Waste Price → Nasabah → Setoran → Perhitungan nilai → Savings Ledger → Saldo Nasabah → Penarikan. Serta: Bank Sampah → Aggregator → Penjualan → Margin → Waste Bank Cash Ledger.",
+    "engineeringHighlights": [
+      {
+        "title": "Dual pricing berdasarkan kategori + aggregator",
+        "description": "Harga dibedakan antara harga nasabah (member) dan harga aggregator sehingga margin dapat dihitung per transaksi."
+      },
+      {
+        "title": "Historical price snapshot pada transaksi",
+        "description": "Harga di-snapshot ke DepositDetail/SaleDetail saat transaksi sehingga nilai historis tidak bergantung pada perubahan master price."
+      },
+      {
+        "title": "Ledger-based customer balance",
+        "description": "Saldo nasabah dihitung dari SavingsLedger, bukan disimpan sebagai kolom terpisah, sehingga konsistensi terjaga."
+      },
+      {
+        "title": "DB transaction untuk transaksi finansial",
+        "description": "Setoran, penarikan, dan penjualan dijalankan dalam database transaction agar ledger dan saldo tetap konsisten."
+      },
+      {
+        "title": "Preventive anomaly audit via BankSampahAuditService",
+        "description": "Layanan audit memeriksa anomali seperti margin negatif dan pengeluaran melebihi kas sebelum transaksi disimpan."
+      }
+    ],
+    "edgeCases": [
+      {
+        "title": "Insufficient balance",
+        "status": "handled",
+        "description": "Penarikan dicegah ketika saldo nasabah tidak mencukupi."
+      },
+      {
+        "title": "Minimum 2 deposits before withdrawal",
+        "status": "handled",
+        "description": "Penarikan hanya diizinkan setelah minimal 2 setoran tercatat."
+      },
+      {
+        "title": "Negative margin",
+        "status": "handled",
+        "description": "Penjualan ke aggregator divalidasi agar margin tidak negatif."
+      },
+      {
+        "title": "Expense greater than bank cash",
+        "status": "handled",
+        "description": "Pengeluaran kas Bank Sampah dicegah melebihi saldo kas yang tersedia."
+      },
+      {
+        "title": "Duplicate pricing",
+        "status": "handled",
+        "description": "Harga ganda untuk kategori atau aggregator yang sama dicegah."
+      },
+      {
+        "title": "Customer deletion protection",
+        "status": "handled",
+        "description": "Nasabah yang memiliki transaksi terkait tidak dapat dihapus."
+      },
+      {
+        "title": "Customer code race condition",
+        "status": "handled",
+        "description": "Pembuatan kode nasabah dilindungi dari race condition duplikat."
+      },
+      {
+        "title": "Unauthorized access",
+        "status": "handled",
+        "description": "Akses dibatasi berdasarkan role; role tidak berwenang ditolak."
+      },
+      {
+        "title": "Transaction rollback",
+        "status": "handled",
+        "description": "Transaksi finansial di-rollback melalui database transaction ketika gagal."
+      }
+    ],
+    "technicalDecisions": [
+      {
+        "decision": "SavingsLedger sebagai sumber perhitungan saldo",
+        "reason": "Menghindari penyimpanan saldo terpisah yang dapat tidak sinkron dengan transaksi."
+      },
+      {
+        "decision": "Snapshot price pada DepositDetail/SaleDetail",
+        "reason": "Menjaga integritas nilai historis transaksi meskipun master price berubah."
+      },
+      {
+        "decision": "BankSampahAuditService untuk preventive anomaly checking",
+        "reason": "Mendeteksi anomali finansial sebelum data persist, bukan sekadar pencatatan pasca-kejadian."
+      }
+    ],
+    "outcome": "Workflow Bank Sampah terdigitalisasi: pencatatan setoran dan saldo nasabah, penarikan, transaksi penjualan ke aggregator, pelaporan, serta pemeriksaan anomali. Catatan: ini adalah modul Bank Sampah dalam scope project kuliah, bukan sistem produksi penuh.",
+    "limitations": "Tidak ada inventory/stok yang menghubungkan Deposit dengan Sale, sehingga traceability akhir sampah terbatas. Master price tidak memiliki effective date/history; margin penjualan memakai member_price terbaru sehingga historical margin dapat berubah ketika harga master berubah. Belum ada approval workflow; penarikan masih staff-assisted.",
+    "ownership": "Development was handled primarily by me within a two-person team. The other team member focused on communication and coordination with the user. Bank Sampah requirements came from the real user, while the wider RT/RW scope was part of the academic project.",
+    "projectType": "Academic Project with Real User Requirement"
+  },
+  {
+    "id": 6,
+    "slug": "pharmacy-management",
+    "title": "Pharmacy Management System",
+    "description": "A campus project to manage pharmacy data, including prescription drugs with detailed information, stock management, and transaction records.",
+    "role": "Fullstack Developer",
+    "impact": [
+      "Centralized medicine data management",
+      "Improved stock monitoring accuracy",
+      "Simplified transaction recording process"
+    ],
+    "header": "/img/port2.png",
+    "icon": ["SiLaravel", "DiMysql", "SiPhp"],
+    "ongoing": false,
+    "source": "open-source",
+    "sector": "experiment",
+    "status": "campus-project",
+    "tags": ["campus project", "inventory", "transaction records"],
+    "github": "https://github.com/muhar05/pharmacy_management.git",
+    "context": "Project kampus (academic) untuk mensimulasikan workflow pengelolaan pharmacy: manajemen obat, supplier, pelanggan, inventory, restock, dan penjualan. Dikerjakan secara mandiri (solo) sebagai demonstrasi aplikasi bisnis relational end-to-end.",
+    "problem": "Pencatatan data apotek (data obat, supplier, pelanggan, stok, restock, transaksi penjualan, dan laporan) jika dilakukan manual rawan tidak konsisten. Project ini mengimplementasikan pencatatan tersebut dalam satu aplikasi. Catatan: ini simulasi akademik, bukan software yang digunakan apotek nyata.",
+    "workflow": "Medicine/Supplier → Restock → Inventory → Customer → Sales/POS → Reporting",
+    "engineeringHighlights": [
+      {
+        "title": "Role-based access control",
+        "description": "Middleware CheckRole membatasi akses berdasarkan role (Admin, Pharmacist, Staff) dan menolak akses tidak berwenang dengan 403."
+      },
+      {
+        "title": "Relational database design",
+        "description": "Skema relasional dengan tabel users, categories, suppliers, medicines, customers, sales, sale_details, restocks dan foreign key antar tabel."
+      },
+      {
+        "title": "Inventory / minimum stock handling",
+        "description": "Kolom minimum_stock memungkinkan deteksi stok rendah untuk alert restock."
+      },
+      {
+        "title": "PDF/Excel export",
+        "description": "Laporan dan invoice dapat diekspor ke PDF (DomPDF) dan Excel (Maatwebsite)."
+      },
+      {
+        "title": "Automated tests",
+        "description": "Repositori menyertakan test (Feature: Auth, ProfileTest; Unit) yang dapat dijalankan dengan php artisan test."
+      }
+    ],
+    "edgeCases": [
+      {
+        "title": "Unauthorized role",
+        "status": "handled",
+        "description": "Akses ditolak dengan 403 ketika role tidak memiliki wewenang (CheckRole middleware)."
+      },
+      {
+        "title": "Low stock",
+        "status": "handled",
+        "description": "Stok di bawah minimum_stock terdeteksi sebagai kondisi stok rendah."
+      },
+      {
+        "title": "Payment status",
+        "status": "handled",
+        "description": "Transaksi sales memiliki status Paid/Unpaid (enum) untuk konsistensi data."
+      },
+      {
+        "title": "Foreign key integrity",
+        "status": "handled",
+        "description": "Relasi antar tabel dijaga dengan foreign key (onDelete cascade / set null)."
+      },
+      {
+        "title": "Authentication required",
+        "status": "handled",
+        "description": "Fitur dilindungi oleh authentication (Laravel Breeze); route terautentikasi."
+      }
+    ],
+    "technicalDecisions": [
+      {
+        "decision": "CheckRole middleware untuk authorization",
+        "reason": "Otorisasi disentralisasi di middleware sehingga setiap controller tidak perlu mengecek role berulang."
+      },
+      {
+        "decision": "Relational schema dengan foreign key constraints",
+        "reason": "Integritas data dijamin di level database, bukan hanya di level aplikasi."
+      },
+      {
+        "decision": "Minimum stock threshold untuk inventory monitoring",
+        "reason": "Threshold disimpan di kolom sehingga pengecekan stok rendah konsisten dan terpusat."
+      }
+    ],
+    "outcome": "Aplikasi terpusat untuk manajemen obat, pelacakan inventory, pencatatan penjualan/POS, akses berbasis role, pelaporan dan ekspor, serta dilengkapi automated tests.",
+    "limitations": "Project akademik, bukan software apotek produksi; tidak ada deployment ke apotek nyata. Scope tidak mencakup alur resep dokter secara penuh (fitur rencana resep/contact dokter tidak dikembangkan). Sebagian besar alur bersifat CRUD dengan aturan role/akses, belum mencakup workflow approval multi-level.",
+    "ownership": "Solo project. I handled the application development end-to-end, including database design, backend, frontend, authentication/authorization, and reporting.",
+    "projectType": "Academic Project"
+  },
+  {
+    "id": 7,
+    "slug": "coffee-shop-management",
+    "title": "Coffee Shop Management App",
+    "description": "A learning-driven mobile management application focused on sales tracking, expense management, and daily transaction monitoring.",
+    "role": "Fullstack Developer",
+    "impact": [
+      "Helped record daily sales digitally",
+      "Improved transaction tracking efficiency",
+      "Reduced manual reporting"
+    ],
+    "header": "/img/port3.png",
+    "icon": ["SiFlutter", "SiDart", "SiSqlite"],
+    "ongoing": false,
+    "source": "closed-source",
+    "sector": "experiment",
+    "status": "learning-project",
+    "tags": ["mobile app", "sales tracking", "sqlite"],
+    "context": "",
+    "problem": "",
+    "workflow": "",
+    "engineeringHighlights": [],
+    "edgeCases": [],
+    "technicalDecisions": [],
+    "outcome": "",
+    "limitations": "",
+    "ownership": "",
+    "projectType": ""
+  }
 ]
