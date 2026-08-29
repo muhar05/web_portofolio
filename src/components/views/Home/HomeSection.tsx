@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
-import { staggerContainer as containerVariants, fadeUp as itemVariants } from "@/app/lib/animations";
+import {
+  staggerContainer as containerVariants,
+  fadeUp as itemVariants,
+} from "@/app/lib/animations";
 import worksData from "@/app/data/works.json";
 import { Work } from "@/types/works";
 import WorkCard from "@/components/ui/WorkCard";
@@ -14,7 +17,7 @@ const HomePage = ({ githubStats }: { githubStats?: GitHubStats | null }) => {
   const flagshipSlugs = [
     "internal-erp-system",
     "ecobank026",
-    "pharmacy-management",
+    "ecarrgo-platform",
   ];
   const selectedWorks = works.filter((w) => flagshipSlugs.includes(w.slug));
 
@@ -37,7 +40,8 @@ const HomePage = ({ githubStats }: { githubStats?: GitHubStats | null }) => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#65a30d]" />
             </span>
             <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
-              currently available for work inquiries. let&rsquo;s build something together.
+              currently available for work inquiries. let&rsquo;s build
+              something together.
             </span>
           </motion.div>
 
